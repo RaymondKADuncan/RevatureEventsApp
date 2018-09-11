@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { User } from '../models/user.model';
 import { Event } from '../models/event.model';
+import { properties } from '../app.properties';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { Event } from '../models/event.model';
 })
 export class DataService {
 
-  private url = 'localhost:3000';
+  private url = properties.url;
 
   constructor(private http: HttpClient) { }
 
