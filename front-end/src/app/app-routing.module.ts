@@ -11,7 +11,7 @@ export const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'featured', component: FeaturedEventsViewComponent},
-    {path: 'create-event', component: CrudEventViewComponent},    
+    {path: 'create-event', component: CrudEventViewComponent},
     {path: 'banner', component: ImageBannerComponent}
 ];
 
