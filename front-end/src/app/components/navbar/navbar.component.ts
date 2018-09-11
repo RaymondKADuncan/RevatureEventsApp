@@ -60,11 +60,4 @@ export class NavbarComponent implements OnInit {
     this.loggedIn = false;
   }
 
-  login() {
-    console.log('Logging in!');
-    console.log(this.username, this.password);
-    this.username = '';
-    this.password = '';
-  }
-
 }

@@ -17,10 +17,6 @@ import { AuthService } from './services/auth.service';
 
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { AppRoutingModule } from './app-routing.module';
-import { FeaturedEventsViewComponent } from './views/featured-events-view/featured-events-view.component';
-import { CrudEventViewComponent } from './views/crud-event-view/crud-event-view.component';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
