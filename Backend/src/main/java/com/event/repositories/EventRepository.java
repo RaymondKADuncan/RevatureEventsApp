@@ -11,7 +11,7 @@ import com.event.beans.Event;
 
 @Repository
 public interface EventRepository extends JpaRepository<Event, Integer> {
-	public List<Event> findByTags(Set tags);
+	public List<Event> findByTags(String tags);
 	public List<Event> getByTime(LocalDateTime dateTime);
 	public List<Event> getByVisible(boolean isVisible);
 }
