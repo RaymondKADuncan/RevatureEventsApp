@@ -68,4 +68,16 @@ public class UserController {
 		User user = null;
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
+	
+	@CrossOrigin("http://ec2-54-208-38-230.compute-1.amazonaws.com:8080")
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public ResponseEntity<User> login(@RequestBody User u) {
+		User user = userService.login(u);
+		if(user != null) {
+			// Login successful, return the user
+			return new ResponseEntity<User>(user, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+		}
+	}
 }
