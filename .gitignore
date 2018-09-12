@@ -1,6 +1,6 @@
 .metadata/
 */target/*
-
+*.properties*
 
 # Created by https://www.gitignore.io/api/angular,eclipse
 
