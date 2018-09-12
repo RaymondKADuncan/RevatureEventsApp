@@ -35,5 +35,13 @@ export class DataService {
     return this.http.post<User>(this.url.concat(''), user);
   }
 
+  getEventById(id: Number): Observable<Event> {
+    return this.http.get<Event>(this.url.concat(`event/view/${id}`));
+  }
+
+  addUserToEvent(userId: Number, eventId: Number): Observable<Event> {
+    return this.http.post<Event>(this.url.concat(''), eventId);
+  }
+
   //addEvent()
 }
