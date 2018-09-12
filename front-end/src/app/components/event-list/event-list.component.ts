@@ -14,6 +14,7 @@ export class EventListComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.getEvents();
   }
 
   getEvents() {
