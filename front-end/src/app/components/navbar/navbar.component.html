@@ -25,9 +25,10 @@
       <input type="button" value="Log Out" name="logout-btn" id="logout-btn" class="btn btn-dark" *ngIf="loggedIn" (click)="logout()">
       <div class="dropdown-menu" style="right: 0; left: auto;" aria-labelledby="navbarDropdownMenuLink">
       <div class="form-group m-2 " (keyup.enter)="login()">
-        <input type="text" name="username" id="username" placeholder="Username" class="form-control" [(ngModel)]="username">
-        <input type="password" name="password" id="password" placeholder="Password" class="form-control" [(ngModel)]="password">
+        <input type="text" name="username" id="nav-username" placeholder="Username" class="form-control" [(ngModel)]="username">
+        <input type="password" name="password" id="nav-password" placeholder="Password" class="form-control" [(ngModel)]="password">
         <input type="button" value="Log In" name="login-btn" id="login-btn" class="btn btn-dark" (click)="login()">
+        <input type="button" value="New Account" name="createAccount-btn" id="createAccount-btn" class="btn btn-success" (click)="createAccount()">
       </div>
     </div>
   </div>

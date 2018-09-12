@@ -60,4 +60,9 @@ export class NavbarComponent implements OnInit {
     this.loggedIn = false;
   }
 
+  createAccount() {
+    // Redirect to the create account page
+    this.router.navigateByUrl('/create-account');
+  }
+
 }

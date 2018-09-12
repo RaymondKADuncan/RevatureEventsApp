@@ -23,8 +23,19 @@ export class AuthService {
     return this.http.post<User>(this.url.concat('login'), JSON.stringify(user));
   }
 
+  createAccount(username: String, password: String, firstname: String, lastname: String) {
+    const user = {
+      username: username,
+      password: password,
+      firstname: firstname,
+      lastname: lastname
+    };
+    return this.http.post<User>(this.url.concat('users/add'), user);
+  }
+
   validate(username: String, password: String): Boolean {
     return null;
   }
+
 
 }
