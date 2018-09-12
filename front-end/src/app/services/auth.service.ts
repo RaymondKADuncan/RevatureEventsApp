@@ -6,8 +6,9 @@ import { User } from '../models/user.model';
 import { properties } from '../app.properties';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
+
 export class AuthService {
 
   private url = properties.url;

@@ -8,6 +8,6 @@ import com.event.beans.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-	User getByUsername(String username);
+	User findByUsername(String username); 
 
 }

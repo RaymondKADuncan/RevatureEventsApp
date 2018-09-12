@@ -40,9 +40,10 @@ public class UserService {
 	public void delete(User u) {
 		userRepo.delete(u);
 	}
+	
 
 	public User login(User u) {
-		User user = userRepo.getByUsername(u.getUsername());
+		User user = userRepo.findByUsername(u.getUsername());
 		if(user != null && user.getPassword() == u.getPassword()) {
 			// Login successful, send user object back
 			return user;
