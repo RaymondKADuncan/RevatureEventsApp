@@ -35,5 +35,12 @@ export class DataService {
     return this.http.post<User>(this.url.concat(''), user);
   }
 
-  //addEvent()
+  addEvent(name: String, description: String, location: String) {
+    const event = {
+      name: name,
+      description: description,
+      location: location
+    };
+    return this.http.post<Event>(this.url.concat('event/add'), event);
+  }
 }
