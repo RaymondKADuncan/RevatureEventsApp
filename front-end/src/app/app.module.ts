@@ -17,6 +17,7 @@ import { AuthService } from './services/auth.service';
 
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HomeComponent } from './components/home/home.component';
     LoginComponent,
     HomeComponent,
     FeaturedEventsViewComponent,
-    CrudEventViewComponent
+    CrudEventViewComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
