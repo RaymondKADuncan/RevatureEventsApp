@@ -17,15 +17,15 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getAllEvents(): Observable<Event[]> {
-    return this.http.post<Event[]>(this.url.concat(''), null);
+    return this.http.get<Event[]>(this.url.concat('event/view/all'));
   }
 
   getEventsByUser(user: User): Observable<Event[]> {
-    return this.http.post<Event[]>(this.url.concat(''), user);
+    return this.http.get<Event[]>(this.url.concat(''));
   }
 
   getAllUsers(): Observable<User[]> {
-    return this.http.post<User[]>(this.url.concat(''), null);
+    return this.http.get<User[]>(this.url.concat('user/view/all'));
   }
 
   getUserByUsername(username: String): Observable<User> {
