@@ -6,6 +6,8 @@ import { CrudEventViewComponent } from './views/crud-event-view/crud-event-view.
 import { HomeComponent } from './components/home/home.component';
 import { ImageBannerComponent } from './components/image-banner/image-banner.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { EventListComponent } from './components/event-list/event-list.component';
+
 
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -14,7 +16,8 @@ export const routes: Routes = [
     {path: 'featured', component: FeaturedEventsViewComponent},
     {path: 'create-event', component: CrudEventViewComponent},
     {path: 'banner', component: ImageBannerComponent},
-    {path: 'create-account', component: CreateAccountComponent}
+    {path: 'create-account', component: CreateAccountComponent},
+    {path: 'event-list', component: EventListComponent}
 ];
 
 @NgModule({
