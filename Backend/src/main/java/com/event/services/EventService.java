@@ -45,4 +45,8 @@ public class EventService {
 		eventRepo.delete(e);
 	}
 	
+	public List<Event> getEventsFromCurrentTime(){
+		return eventRepo.getByTimeGreaterThan(LocalDateTime.now());
+	}
+	
 }

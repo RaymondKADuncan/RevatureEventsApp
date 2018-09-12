@@ -14,4 +14,5 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 	public List<Event> findByTags(String tags);
 	public List<Event> getByTime(LocalDateTime dateTime);
 	public List<Event> getByVisible(boolean isVisible);
+	public List<Event> getByTimeGreaterThan(LocalDateTime dateTime);
 }

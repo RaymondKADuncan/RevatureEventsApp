@@ -69,6 +69,11 @@ public class EventController
 		return new ResponseEntity<Event>(event, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/event/view/future", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Event>> getEventsFromCurrentTime() {
+		return new ResponseEntity<List<Event>>(eventService.getEventsFromCurrentTime(), HttpStatus.OK);
+	}
+	
 	
 	//eventService.getAll().stream().filter(e -> e.getName().equals("INPUTSTRING")).collect(Collectors.toList())
 	
