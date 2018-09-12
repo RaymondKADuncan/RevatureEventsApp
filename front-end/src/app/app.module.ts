@@ -18,6 +18,7 @@ import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     HomeComponent,
     FeaturedEventsViewComponent,
     CrudEventViewComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
