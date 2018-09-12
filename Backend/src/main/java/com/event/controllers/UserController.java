@@ -68,4 +68,15 @@ public class UserController {
 		User user = null;
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public ResponseEntity<User> login(@RequestBody User u) {
+		User user = userService.login(u);
+		if(user != null) {
+			// Login successful, return the user
+			return new ResponseEntity<>(user, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
 }
