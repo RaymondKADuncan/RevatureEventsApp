@@ -15,10 +15,12 @@ import { FeaturedEventsViewComponent } from './views/featured-events-view/featur
 import { CrudEventViewComponent } from './views/crud-event-view/crud-event-view.component';
 import { AuthService } from './services/auth.service';
 
+
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { EventViewComponent } from './components/event-view/event-view.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     FeaturedEventsComponent,
     FooterComponent,
     EventListComponent,
+    EventViewComponent,
     SearchComponent,
     LoginComponent,
     HomeComponent,

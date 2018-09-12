@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Event } from '../../models/event.model';
+import { Router } from '../../../../node_modules/@angular/router';
+import { ContextService } from '../../services/context.service';
 
 @Component({
   selector: 'app-event-list',
@@ -11,7 +13,9 @@ export class EventListComponent implements OnInit {
 
   events: Event[] = [];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,
+    private router: Router,
+    private context: ContextService) { }
 
   ngOnInit() {
     this.getEvents();
@@ -23,6 +27,12 @@ export class EventListComponent implements OnInit {
         this.events = e;
       }
     )
+  }
+
+  viewEventDetails($event) {
+    // console.log($event.currentTarget.childNodes[0].innerHTML);
+    this.context.setEventId($event.currentTarget.childNodes[0].innerHTML);
+    this.router.navigateByUrl('/event-view');
   }
 
 }
