@@ -70,7 +70,7 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping(value="/login", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> login(@RequestBody User u) {
 		User user = userService.login(u);
 		if(user != null) {
