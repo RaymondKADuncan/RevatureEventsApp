@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar w/ text</a>
+  <a class="navbar-brand" routerLink="#">Revature Events</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,13 +7,13 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="featured">Featured</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="featured">Featured</a>
+        <a class="nav-link" routerLink="create-event">Create</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="create-event">Create</a>
+          <a class="nav-link" routerLink="event-list">Events</a>
       </li>
     </ul>
     <div class="form-group m-auto">
@@ -21,14 +21,19 @@
     </div>
 
     <a class="nav-link btn btn-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false" *ngIf="!loggedIn">Log In</a>
-      <input type="button" value="Log Out" name="logout-btn" id="logout-btn" class="btn btn-dark" *ngIf="loggedIn" (click)="logout()">
-      <div class="dropdown-menu" style="right: 0; left: auto;" aria-labelledby="navbarDropdownMenuLink">
-      <div class="form-group m-2 " (keyup.enter)="login()">
+      aria-haspopup="true" aria-expanded="false" *ngIf="!loggedIn">Log In</a> 
+    <a class="nav-link btn btn-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false" *ngIf="loggedIn">Account Info/Logout</a> 
+    <div class="dropdown-menu" style="right: 0; left: auto;" aria-labelledby="navbarDropdownMenuLink">
+      <div class="form-group m-2 " (keyup.enter)="login()" *ngIf="!loggedIn">
         <input type="text" name="username" id="nav-username" placeholder="Username" class="form-control" [(ngModel)]="username">
         <input type="password" name="password" id="nav-password" placeholder="Password" class="form-control" [(ngModel)]="password">
         <input type="button" value="Log In" name="login-btn" id="login-btn" class="btn btn-dark" (click)="login()">
         <input type="button" value="New Account" name="createAccount-btn" id="createAccount-btn" class="btn btn-success" (click)="createAccount()">
+      </div>
+      <div class="form-group m-2 " *ngIf="loggedIn">
+        <input type="button" value="View Account" name="login-btn" id="login-btn" class="btn btn-dark" (click)="login()">
+        <input type="button" value="Log Out" name="createAccount-btn" id="createAccount-btn" class="btn btn-success" (click)="createAccount()">
       </div>
     </div>
   </div>
