@@ -17,5 +17,6 @@
     <input type="text" [(ngModel)]="newEvent.location" name="eventLocation" class="form-control">
     <small id="eventLocationHelp" class="form-text text-muted">Where will your event take place?</small>
   </div>
-  <button class="btn btn-submit" (click)="createEvent()">Create Event!</button>
+  <button class="btn btn-submit" (click)="createEvent()" *ngIf="eventId == null">Create Event!</button>
+  <button class="btn btn-success" (click)="updateEvent()" *ngIf="eventId != null">Update!</button>
 </form>

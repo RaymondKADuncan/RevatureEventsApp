@@ -62,6 +62,11 @@ export class EventViewComponent implements OnInit {
       });
   }
 
+  updateEvent() {
+    this.context.setEventId(this.currentEvent.id);
+    this.router.navigateByUrl('/create-event');
+  }
+
   deleteEvent() {
     this.data.deleteEvent(this.currentEvent).subscribe(
       event => {

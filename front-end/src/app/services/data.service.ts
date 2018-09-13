@@ -49,7 +49,11 @@ export class DataService {
   }
 
   deleteEvent(event: Event) {
-    return this.http.post<Event>(this.url.concat('/event/delete'), event);
+    return this.http.post<Event>(this.url.concat('event/delete'), event);
+  }
+
+  updateEvent(event: Event) {
+    return this.http.post<Event>(this.url.concat('event/update'), event);
   }
 
   addUserToEvent(userEvent: String) {

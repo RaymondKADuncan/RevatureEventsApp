@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Event } from '../../models/event.model';
 import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
+import { ContextService } from '../../services/context.service';
 
 
 
@@ -14,11 +15,32 @@ export class CrudEventViewComponent implements OnInit {
 
   events: Event[] = [];
   newEvent: Event = new Event();
+  eventId: Number;
+  event: Event;
+  isNew: boolean;
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(
+    private dataService: DataService, 
+    private router: Router,
+    private context: ContextService
+  ) { }
 
   ngOnInit() {
     this.getEvents();
+    this.eventId = this.context.getEventId();
+    if(this.eventId === null) {
+      this.newEvent = new Event();
+    } else {
+      this.dataService.getEventById(this.eventId).subscribe(
+        data => {
+          if(data == null) {
+            // Something went wrong
+          } else {
+            this.newEvent = <Event> data;
+          }
+        }
+      )
+    }
   }
 
   getEvents() {
@@ -34,6 +56,20 @@ export class CrudEventViewComponent implements OnInit {
       e => {
         console.log(e);
         this.router.navigateByUrl('/event-list');
+      }
+    )
+  }
+
+  updateEvent() {
+    this.dataService.updateEvent(this.newEvent).subscribe(
+      data => {
+        if(data == null) {
+          // Bad things happened
+        }
+        else {
+          console.log(data);
+          this.router.navigateByUrl('/event-list');
+        }
       }
     )
   }
