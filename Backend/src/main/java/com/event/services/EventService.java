@@ -45,4 +45,12 @@ public class EventService {
 		eventRepo.delete(e);
 	}
 	
+	public List<Event> getEventsFromCurrentTime(){
+		return eventRepo.getByTimeGreaterThan(LocalDateTime.now());
+	}
+	
+	public List<Event> getEventsByName(String name){
+		return eventRepo.getByName(name);
+	}
+	
 }

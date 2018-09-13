@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.event.beans.Event;
@@ -69,6 +70,16 @@ public class EventController
 		eventService.delete(e);
 		Event event = null;
 		return new ResponseEntity<Event>(event, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/event/view/future", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Event>> getEventsFromCurrentTime() {
+		return new ResponseEntity<List<Event>>(eventService.getEventsFromCurrentTime(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/event/view/search", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Event>> searchEventsByName(@RequestParam String name) {
+		return new ResponseEntity<List<Event>>(eventService.getEventsByName(name), HttpStatus.OK);
 	}
 	
 	
