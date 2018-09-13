@@ -41,7 +41,7 @@ public class EventController
 		return new ResponseEntity<List<Event>>(eventService.getAll(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/event/view/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/event/view/id/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Event> getEventByID(@PathVariable int id) {
 		return new ResponseEntity<Event>(eventService.getOne(id), HttpStatus.OK);
 	}
