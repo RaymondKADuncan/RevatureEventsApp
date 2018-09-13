@@ -49,9 +49,18 @@ public class EventService {
 		eventRepo.delete(e);
 	}
 	
+
 	public void addUserToEvent(int userId, int eventId) {
 		eventRepo.findOne(eventId).getUsers().add(userRepo.findOne(userId));
-		System.out.println("Adding user");
+	}
+		
+	public List<Event> getEventsFromCurrentTime(){
+		return eventRepo.getByTimeGreaterThan(LocalDateTime.now());
+	}
+	
+	public List<Event> getEventsByName(String name){
+		return eventRepo.getByName(name);
+
 	}
 	
 }

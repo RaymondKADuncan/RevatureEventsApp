@@ -27,9 +27,18 @@
       </iframe>
     </div>
   </div>
-
-  <button class="btn btn-primary" (click)="rsvp()">RSVP</button>
+  <br>
+  <div class="container" style="position: relative;">
+    <button class="btn btn-primary" (click)="rsvp()">RSVP</button>
+    <button class="btn btn-info" (click)="updateEvent()" style="position: absolute; right: 123px">Update Info</button>
+    <button class="btn btn-danger" (click)="deleteEvent()" style="position: absolute; right: 10px">Delete Event</button>
+  </div>
   
+  <br>
+
+  <div class="container align-center">
+    <button class="btn btn-dark" (click)="goBack()" >Go Back</button>
+  </div>
   <!-- comments -->
 
 </div>

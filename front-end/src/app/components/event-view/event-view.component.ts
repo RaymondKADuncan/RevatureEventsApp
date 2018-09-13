@@ -4,6 +4,7 @@ import {DataService} from '../../services/data.service';
 import {ContextService} from '../../services/context.service';
 
 import {Event} from '../../models/event.model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-event-view',
   templateUrl: './event-view.component.html',
@@ -13,7 +14,8 @@ export class EventViewComponent implements OnInit {
 
   constructor(private sanitizer:DomSanitizer,
     private data: DataService,
-    private context: ContextService) { }
+    private context: ContextService,
+    private router: Router) { }
 
   ngOnInit() {
     this.initializeEvent();
@@ -58,6 +60,19 @@ export class EventViewComponent implements OnInit {
         console.log(this.currentEvent);
         console.log(this.currentEvent.users[0].username);
       });
+  }
+
+  deleteEvent() {
+    this.data.deleteEvent(this.currentEvent).subscribe(
+      event => {
+        this.currentEvent = event;
+        this.router.navigateByUrl('/event-list');
+      }
+    )
+  }
+
+  goBack() {
+    this.router.navigateByUrl('/event-list');
   }
 
 }
