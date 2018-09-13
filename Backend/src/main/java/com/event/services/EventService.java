@@ -49,4 +49,8 @@ public class EventService {
 		return eventRepo.getByTimeGreaterThan(LocalDateTime.now());
 	}
 	
+	public List<Event> getEventsByName(String name){
+		return eventRepo.getByName(name);
+	}
+	
 }
