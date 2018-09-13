@@ -52,4 +52,8 @@ export class EventViewComponent implements OnInit {
     this.data.getEventById(this.context.getEventId()).subscribe(data => this.currentEvent = data);
   }
 
+  deleteEvent(currentEvent) {
+    
+  }
+
 }
