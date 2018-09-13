@@ -41,8 +41,7 @@ export class NavbarComponent implements OnInit {
         console.log(user);
         if (user == null) {
           // No user returned. Redirect to login page
-          console.log('Redirecting to login page');
-          this.router.navigateByUrl('/login');
+          window.alert("Wrong credentials, try again");
         } else {
           // Log in user on the front end
           this.loggedIn = true;
@@ -53,13 +52,16 @@ export class NavbarComponent implements OnInit {
     );
     this.username = '';
     this.password = '';
-    this.loggedIn = true;
-    this.router.navigateByUrl('/login');
+    //this.loggedIn = true;
   }
 
   logout() {
     // Log out in context service and in navbar component
     this.loggedIn = false;
+  }
+
+  userProfileView(){
+    this.router.navigateByUrl('/user-profile');
   }
 
   createAccount() {
