@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Event } from '../../models/event.model';
-import { Router } from '../../../../node_modules/@angular/router';
-import { ContextService } from '../../services/context.service';
+import {Router} from '../../../../node_modules/@angular/router'
+import {ContextService} from '../../services/context.service'
 
 @Component({
   selector: 'app-event-list',
@@ -29,8 +29,7 @@ export class EventListComponent implements OnInit {
     )
   }
 
-  viewEventDetails($event) {
-    // console.log($event.currentTarget.childNodes[0].innerHTML);
+  viewEventDetails($event){
     this.context.setEventId($event.currentTarget.childNodes[0].innerHTML);
     this.router.navigateByUrl('/event-view');
   }

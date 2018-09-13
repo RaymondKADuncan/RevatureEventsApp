@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 import { ContextService } from '../../services/context.service';
-import { User } from '../../models/user';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authService.login(this.username, this.password).subscribe(
-      data => {
+      (data) => {
+        const user = <User> data;
+        console.log(data.firstname);
         if (data != null) {
           // User received, redirect to homepage
           // @ts-ignore

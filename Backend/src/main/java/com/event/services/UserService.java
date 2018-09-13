@@ -2,7 +2,6 @@ package com.event.services;
 
 import java.util.List;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.transaction.Transactional;
 
@@ -15,8 +14,6 @@ import com.event.repositories.UserRepository;
 @Service
 @Transactional
 public class UserService {
-	
-	private static final Logger LOGGER = Logger.getLogger(UserService.class.getName());
 	
 	@Autowired
 	private UserRepository userRepo;
@@ -48,8 +45,7 @@ public class UserService {
 
 	public User login(User u) {
 		User user = userRepo.findByUsername(u.getUsername());
-		LOGGER.log(Level.INFO, user.getUsername());
-		if(user != null && user.getPassword() == u.getPassword()) {
+		if(user != null && user.getPassword().equals(u.getPassword())) {
 			// Login successful, send user object back
 			return user;
 		} else {

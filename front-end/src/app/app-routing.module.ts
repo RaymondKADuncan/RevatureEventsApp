@@ -7,7 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ImageBannerComponent } from './components/image-banner/image-banner.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { EventListComponent } from './components/event-list/event-list.component';
-import { EventViewComponent } from './components/event-view/event-view.component';
+import {EventViewComponent} from './components/event-view/event-view.component';
 
 
 export const routes: Routes = [

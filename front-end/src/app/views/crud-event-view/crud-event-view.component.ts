@@ -3,6 +3,8 @@ import { Event } from '../../models/event.model';
 import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-crud-event-view',
   templateUrl: './crud-event-view.component.html',

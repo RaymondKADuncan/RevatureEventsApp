@@ -24,8 +24,8 @@ export class DataService {
     return this.http.get<Event[]>(this.url.concat(''));
   }
 
-  getEventById(id: number): Observable<Event> {
-    return this.http.get<Event>(this.url.concat(`event/view/${id}`));
+  getEventById(id: Number): Observable<Event> {
+    return this.http.get<Event>(this.url.concat(`event/view/id/${id}`));
   }
 
   getAllUsers(): Observable<User[]> {
