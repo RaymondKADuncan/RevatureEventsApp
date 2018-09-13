@@ -1,0 +1,29 @@
+<div style="text-align: center">
+  <h1>Create Account</h1>
+</div>
+<form>
+  <div class="container">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" id="username" placeholder="Username" required minlength="1" maxlength="50" [(ngModel)]="username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" name="password" id="password" placeholder="Password" required minlength="1" maxlength="50" [(ngModel)]="password">
+    </div>
+    <div class="form-group">
+      <label for="validatePassword">Validate Password</label>
+      <input type="password" class="form-control" name="validatePassword" id="validatePassword" placeholder="Password" required minlength="1" maxlength="50" [(ngModel)]="validatePassword">
+    </div>
+    <div class="form-group">
+      <label for="firstname">Firstname</label>
+      <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Firstname" required minlength="1" maxlength="50" [(ngModel)]="firstname">
+    </div>
+    <div class="form-group">
+      <label for="lastname">Lastname</label>
+      <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Lastname" required minlength="1" maxlength="50" [(ngModel)]="lastname">
+    </div>
+    <button type="button" class="btn btn-success" (click)="createAccount()">Register</button>
+    <button type="button" class="btn btn-default" (click)="login()">Log In</button>
+  </div>
+</form>

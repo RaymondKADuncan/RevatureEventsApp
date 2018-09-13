@@ -1,3 +1,20 @@
-<p>
-  event-list works!
-</p>
+<h3>All Events:</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col" style="display:none;">Id</th>
+      <th scope="col">Event Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date and Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let e of events" (click)="viewEventDetails($event)">
+      <td style="display:none;">{{e.id}}</td>
+      <td>{{e.name}}</td>
+      <td>{{e.description}}</td>
+      <td>{{e.date}}</td>
+    </tr>
+  </tbody>
+
+</table>

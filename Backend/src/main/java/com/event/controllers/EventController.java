@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import com.event.beans.Event;
 import com.event.services.EventService;
 
 @RestController
+@CrossOrigin
 public class EventController 
 {
 	@Autowired
@@ -40,7 +42,7 @@ public class EventController
 		return new ResponseEntity<List<Event>>(eventService.getAll(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/event/view/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/event/view/id/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Event> getEventByID(@PathVariable int id) {
 		return new ResponseEntity<Event>(eventService.getOne(id), HttpStatus.OK);
 	}

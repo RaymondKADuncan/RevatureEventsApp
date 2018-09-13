@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import {DataService} from '../../services/data.service';
+import {ContextService} from '../../services/context.service';
 
+import {Event} from '../../models/event.model';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-event-view',
   templateUrl: './event-view.component.html',
@@ -8,12 +12,16 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class EventViewComponent implements OnInit {
 
-  constructor(private sanitizer:DomSanitizer) { }
+  constructor(private sanitizer:DomSanitizer,
+    private data: DataService,
+    private context: ContextService,
+    private router: Router) { }
 
   ngOnInit() {
     this.initializeEvent();
   }
-
+  currentEvent: Event;
+  /*
   currentEvent = {
     id: 1,
     name: 'TestEvent',
@@ -30,18 +38,33 @@ export class EventViewComponent implements OnInit {
     time: Date.now(),
     location: 'Revature'
   };
+  */
 
   mapLocation() {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`https://maps.google.com/maps?q=
       ${this.currentEvent.location}&output=embed`);
   }
+  
 
   rsvp() {
     //RSVP to currentEvent
   }
 
   initializeEvent() {
-    //Utilize data service to retrieve current event details
+    this.data.getEventById(this.context.getEventId()).subscribe(data => this.currentEvent = data);
+  }
+
+  deleteEvent() {
+    this.data.deleteEvent(this.currentEvent).subscribe(
+      event => {
+        this.currentEvent = event;
+        this.router.navigateByUrl('/event-list');
+      }
+    )
+  }
+
+  goBack() {
+    this.router.navigateByUrl('/event-list');
   }
 
 }

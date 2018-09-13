@@ -8,4 +8,6 @@ export class Event {
     tags: String[];
     groups: String[];
     time: Date;
+    location: String;
+    pictureUrl: String
 }

@@ -17,15 +17,19 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getAllEvents(): Observable<Event[]> {
-    return this.http.post<Event[]>(this.url.concat(''), null);
+    return this.http.get<Event[]>(this.url.concat('event/view/all'));
   }
 
   getEventsByUser(user: User): Observable<Event[]> {
-    return this.http.post<Event[]>(this.url.concat(''), user);
+    return this.http.get<Event[]>(this.url.concat(''));
+  }
+
+  getEventById(id: Number): Observable<Event> {
+    return this.http.get<Event>(this.url.concat(`event/view/id/${id}`));
   }
 
   getAllUsers(): Observable<User[]> {
-    return this.http.post<User[]>(this.url.concat(''), null);
+    return this.http.get<User[]>(this.url.concat('user/view/all'));
   }
 
   getUserByUsername(username: String): Observable<User> {
@@ -33,5 +37,18 @@ export class DataService {
       username: username
     };
     return this.http.post<User>(this.url.concat(''), user);
+  }
+
+  addEvent(name: String, description: String, location: String) {
+    const event = {
+      name: name,
+      description: description,
+      location: location
+    };
+    return this.http.post<Event>(this.url.concat('event/add'), event);
+  }
+
+  deleteEvent(event: Event) {
+    return this.http.post<Event>(this.url.concat('/event/delete'), event);
   }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import com.event.beans.User;
 import com.event.services.UserService;
 
 @RestController
+@CrossOrigin
 public class UserController {
 
 	@Autowired
@@ -65,5 +67,17 @@ public class UserController {
 		userService.delete(u);
 		User user = null;
 		return new ResponseEntity<User>(user, HttpStatus.OK);
+	}
+	
+	
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public ResponseEntity<User> login(@RequestBody User u) {
+		User user = userService.login(u);
+		if(user != null) {
+			// Login successful, return the user
+			return new ResponseEntity<User>(user, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+		}
 	}
 }

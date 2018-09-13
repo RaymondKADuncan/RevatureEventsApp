@@ -1,7 +1,5 @@
-/.metadata/
-
+.metadata/
 */target/*
-
 *.properties*
 
 # Created by https://www.gitignore.io/api/angular,eclipse
@@ -109,4 +107,3 @@ local.properties
 
 
 # End of https://www.gitignore.io/api/angular,eclipse
-Servers/
