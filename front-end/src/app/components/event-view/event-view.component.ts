@@ -49,7 +49,7 @@ export class EventViewComponent implements OnInit {
   }
 
   initializeEvent() {
-    this.data.getEventById(this.context.getEventId()).subscribe(data => this.currentEvent = data);
+    //this.data.getEventById(this.context.getEventId()).subscribe(data => this.currentEvent = data);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from '../../models/event.model';
 import { DataService } from '../../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crud-event-view',
@@ -12,7 +13,7 @@ export class CrudEventViewComponent implements OnInit {
   events: Event[] = [];
   newEvent: Event = new Event();
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
     this.getEvents();
@@ -27,6 +28,12 @@ export class CrudEventViewComponent implements OnInit {
   }
 
   createEvent() {
+    this.dataService.addEvent(this.newEvent.name, this.newEvent.description, this.newEvent.location).subscribe(
+      e => {
+        console.log(e);
+        this.router.navigateByUrl('/event-list');
+      }
+    )
     console.log('adding event');
     console.log(this.newEvent.id);
     console.log(this.newEvent.name);
