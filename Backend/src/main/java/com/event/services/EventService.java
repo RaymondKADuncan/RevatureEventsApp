@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.event.beans.Event;
 import com.event.repositories.EventRepository;
+import com.event.repositories.UserRepository;
 
 @Service
 @Transactional
@@ -17,6 +18,9 @@ public class EventService {
 
 	@Autowired
 	private EventRepository eventRepo;
+	
+	@Autowired
+	private UserRepository userRepo;
 	
 	public List<Event> getAll(){
 		System.out.println(eventRepo.findAll());
@@ -43,6 +47,11 @@ public class EventService {
 	
 	public void delete(Event e) {
 		eventRepo.delete(e);
+	}
+	
+	public void addUserToEvent(int userId, int eventId) {
+		eventRepo.findOne(eventId).getUsers().add(userRepo.findOne(userId));
+		System.out.println("Adding user");
 	}
 	
 }

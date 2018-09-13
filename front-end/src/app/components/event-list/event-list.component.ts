@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Event } from '../../models/event.model';
-import {Router} from '../../../../node_modules/@angular/router'
-import {ContextService} from '../../services/context.service'
+import { Router } from '../../../../node_modules/@angular/router';
+import { ContextService } from '../../services/context.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-event-list',
@@ -29,9 +30,33 @@ export class EventListComponent implements OnInit {
     )
   }
 
-  viewEventDetails($event){
+  viewEventDetails($event) {
     this.context.setEventId($event.currentTarget.childNodes[0].innerHTML);
     this.router.navigateByUrl('/event-view');
+  }
+
+  log(value) {
+    console.log(value);
+  }
+
+  hasUsers(userArray: User[]) {
+    if (userArray.length > 0) {
+      return true;
+    }
+    return false;
+  }
+
+  displayUsers(userArray: User[]): String {
+    let displayString = '';
+    for (let i = 0; i < userArray.length; i++) {
+      // displayString += userArray[i].firstname + " " + userArray[i].lastname;
+      displayString += userArray[i].username;
+      if (i == userArray.length - 1) {
+        break;
+      }
+      displayString += ", ";
+    }
+    return displayString;
   }
 
 }

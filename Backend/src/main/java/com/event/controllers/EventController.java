@@ -71,6 +71,15 @@ public class EventController
 		return new ResponseEntity<Event>(event, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="event/addUser", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Event> addUserToEvent(@RequestBody String userEvent) {
+		String[] userEventIds = userEvent.split(" ");
+		eventService.addUserToEvent(Integer.parseInt(userEventIds[0]), Integer.parseInt(userEventIds[1]));
+		System.out.println("In Controller add user");
+		Event event = null;
+		return new ResponseEntity<Event>(event, HttpStatus.OK);
+	}
+	
 	
 	//eventService.getAll().stream().filter(e -> e.getName().equals("INPUTSTRING")).collect(Collectors.toList())
 	

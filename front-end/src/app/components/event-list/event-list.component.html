@@ -6,6 +6,7 @@
       <th scope="col">Event Name</th>
       <th scope="col">Description</th>
       <th scope="col">Date and Time</th>
+      <th scope="col">Users</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,8 @@
       <td>{{e.name}}</td>
       <td>{{e.description}}</td>
       <td>{{e.date}}</td>
+      <td *ngIf="hasUsers(e.users)">{{displayUsers(e.users)}}</td>
+      <td *ngIf="!hasUsers(e.users)"></td>
     </tr>
   </tbody>
 

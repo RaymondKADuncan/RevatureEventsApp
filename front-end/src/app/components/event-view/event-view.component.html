@@ -1,7 +1,7 @@
 
-<div class="jumbotron" style="width: 75%; margin: auto">
-  <img src="../../../../src/assets/Events.jpg" alt="Event Photo" 
-    style="width: 60%; margin: auto; display:block">
+<div *ngIf="currentEvent" class="jumbotron" style="width: 75%; margin: auto">
+  <!-- <img src="../../../../src/assets/Events.jpg" alt="Event Photo" 
+    style="width: 60%; margin: auto; display:block"> -->
   <div>
     <h1 style="display: inline">{{currentEvent.name}}</h1>
     <span style="float: right">{{currentEvent.time | date}}</span>

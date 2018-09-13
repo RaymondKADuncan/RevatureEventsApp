@@ -45,11 +45,19 @@ export class EventViewComponent implements OnInit {
   
 
   rsvp() {
-    //RSVP to currentEvent
+    console.log(this.context.getUser());
+    // console.log(this.context.getUser().id);
+    console.log(this.context.getEventId());
+    this.data.addUserToEvent(this.context.getUser().id + " " + this.context.getEventId()).subscribe();
   }
 
   initializeEvent() {
-    this.data.getEventById(this.context.getEventId()).subscribe(data => this.currentEvent = data);
+    this.data.getEventById(this.context.getEventId()).subscribe(data => this.currentEvent = data, error => {}, 
+      () => 
+      {
+        console.log(this.currentEvent);
+        console.log(this.currentEvent.users[0].username);
+      });
   }
 
 }

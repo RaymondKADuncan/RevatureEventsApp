@@ -29,16 +29,17 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authService.login(this.username, this.password).subscribe(
-      (data) => {
-        const user = <User> data;
-        console.log(data.firstname);
+      data => {
         if (data != null) {
           // User received, redirect to homepage
           // @ts-ignore
           const user = <User> data;
           // @ts-ignore
           this.context.setUser(user);
-          this.router.navigateByUrl('home');
+          //
+          console.log('Set User');
+          //
+          this.router.navigateByUrl('event-list');
         }
       }
     );
