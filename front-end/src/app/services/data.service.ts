@@ -24,6 +24,10 @@ export class DataService {
     return this.http.get<Event[]>(this.url.concat(''));
   }
 
+  getEventById(id: number): Observable<Event> {
+    return this.http.get<Event>(this.url.concat(`event/view/${id}`));
+  }
+
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.url.concat('user/view/all'));
   }
@@ -42,5 +46,9 @@ export class DataService {
       location: location
     };
     return this.http.post<Event>(this.url.concat('event/add'), event);
+  }
+
+  deleteEvent(event: Event) {
+    return this.http.post<Event>(this.url.concat('/event/delete'), event);
   }
 }

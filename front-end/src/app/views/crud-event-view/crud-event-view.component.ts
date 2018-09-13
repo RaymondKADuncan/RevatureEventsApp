@@ -34,11 +34,6 @@ export class CrudEventViewComponent implements OnInit {
         this.router.navigateByUrl('/event-list');
       }
     )
-    console.log('adding event');
-    console.log(this.newEvent.id);
-    console.log(this.newEvent.name);
-    console.log(this.newEvent.description);
-    console.log(this.newEvent.location);
   }
 
 }

@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
 export class ContextService {
 
   private user: User = null;
-  private eventId: Number;
+  private eventId: number;
 
   constructor() { }
 
@@ -20,11 +20,11 @@ export class ContextService {
     this.user = user;
   }
 
-  getEventId(): Number {
+  getEventId(): number {
     return this.eventId;
   }
 
-  setEventId(event: Number): void {
-    this.eventId = event;
+  setEventId(eventId: number): void {
+    this.eventId = eventId;
   }
 }
