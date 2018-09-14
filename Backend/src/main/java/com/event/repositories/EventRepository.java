@@ -15,4 +15,5 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 	public List<Event> getByVisible(boolean isVisible);
 	public List<Event> getByTimeGreaterThan(LocalDateTime dateTime);
 	public List<Event> getByName(String name);
+	public List<Event> getByNameContains(String name);
 }

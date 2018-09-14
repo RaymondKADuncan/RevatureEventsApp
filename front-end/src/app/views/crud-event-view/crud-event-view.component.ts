@@ -4,8 +4,6 @@ import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
 import { ContextService } from '../../services/context.service';
 
-
-
 @Component({
   selector: 'app-crud-event-view',
   templateUrl: './crud-event-view.component.html',
@@ -18,6 +16,10 @@ export class CrudEventViewComponent implements OnInit {
   eventId: Number;
   event: Event;
   isNew: boolean;
+  eventDate: Date;
+
+  eventTagInput: String;
+  eventTagList: String[] = [];
 
   constructor(
     private dataService: DataService, 
@@ -43,6 +45,20 @@ export class CrudEventViewComponent implements OnInit {
     }
   }
 
+  addTag() {
+    this.eventTagList.push(this.eventTagInput);
+    console.log(this.eventTagList);
+    this.eventTagInput = '';
+  }
+
+  removeTag(tag: String) {
+    this.eventTagList = this.eventTagList.filter(t => t !== tag);
+  }
+
+  getTags(): String[] {
+    return this.eventTagList;
+  }
+
   getEvents() {
     this.dataService.getAllEvents().subscribe(
       e => {
@@ -52,7 +68,7 @@ export class CrudEventViewComponent implements OnInit {
   }
 
   createEvent() {
-    this.dataService.addEvent(this.newEvent.name, this.newEvent.description, this.newEvent.location).subscribe(
+    this.dataService.addEvent(this.newEvent.name, this.newEvent.description, this.newEvent.location, this.getTags(), this.newEvent.time).subscribe(
       e => {
         console.log(e);
         this.router.navigateByUrl('/event-list');
