@@ -30,7 +30,7 @@ public class User {
 	private String password;
 	private String role;
 	
-	@ElementCollection
+	@ElementCollection(targetClass=Integer.class, fetch=FetchType.EAGER)
 	private List<Integer> events;
 	
 	@ElementCollection(targetClass=String.class, fetch=FetchType.EAGER)
