@@ -21,9 +21,9 @@ export class SearchComponent implements OnInit {
 
   search(): void {
     //console.log('Searching for: ' + this.searchParam);
-    //let url = 'event/view/search/search?name=' + this.searchParam;//for deployed website
-    let url = 'http://ec2-54-208-38-230.compute-1.amazonaws.com:8080/RevEventApp/event/view/search/search?name=' + this.searchParam;//for localhost
-    let response = this.http.get<Event>(url);
+    //const url = 'event/search?param=' + this.searchParam;//for deployed website
+    const url = 'http://ec2-54-208-38-230.compute-1.amazonaws.com:8080/RevEventApp/event/search?param=' + this.searchParam;//for localhost
+    const response = this.http.get<Event>(url);
     response.subscribe(data => console.log(JSON.stringify(data)));
   }
 
