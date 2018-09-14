@@ -81,13 +81,4 @@ public class UserController {
 			return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 		}
 	}
-	
-	@RequestMapping(value="user/addEvent", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
-	public static ResponseEntity<User> addEventToUser(@RequestBody String userEvent) {
-		String[] userEventIds = userEvent.split(" ");
-		userService.addEventToUser(Integer.parseInt(userEventIds[0]), Integer.parseInt(userEventIds[1]));
-		System.out.println("In Controller add user");
-		User user = null;
-		return new ResponseEntity<User>(user, HttpStatus.OK);
-	}
 }
