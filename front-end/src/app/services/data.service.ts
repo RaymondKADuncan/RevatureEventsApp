@@ -20,6 +20,10 @@ export class DataService {
     return this.http.get<Event[]>(this.url.concat('event/view/all'));
   }
 
+  getSearchResults(query: string): Observable<Event[]>{
+    return this.http.get<Event[]>(this.url.concat('event/search?param=' + query));
+  }
+
   getEventsByUser(user: User): Observable<Event[]> {
     return this.http.get<Event[]>(this.url.concat(''));
   }

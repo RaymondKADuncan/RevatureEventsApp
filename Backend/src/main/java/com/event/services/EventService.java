@@ -66,12 +66,13 @@ public class EventService {
 	}
 	
 	public List<Event> search(String param){
-		String[] keywords = param.split(param);
-		HashSet<Event> results = new HashSet<>();
-		for(String keyword : keywords) {
-			results.addAll(eventRepo.getByNameContains(keyword));
-		}
-		return results.stream().collect(Collectors.toList());
+		return eventRepo.getByName(param);
+		//String[] keywords = param.split(param);
+		//HashSet<Event> results = new HashSet<>();
+		//for(String keyword : keywords) {
+			//results.addAll(eventRepo.getByNameContains(keyword));
+		//}
+		//return results.stream().collect(Collectors.toList());
 	}
 	
 }

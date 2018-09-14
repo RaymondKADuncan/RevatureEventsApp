@@ -87,7 +87,7 @@ public class EventController
 		return new ResponseEntity<List<Event>>(eventService.getEventsFromCurrentTime(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/event/search", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="event/search", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Event>> searchEventsByName(@RequestParam String param) {
 		return new ResponseEntity<List<Event>>(eventService.search(param), HttpStatus.OK);
 	}
