@@ -74,6 +74,11 @@ export class EventViewComponent implements OnInit {
       this.currentComment = "";
   }
 
+  updateEvent() {
+    this.context.setEventId(this.currentEvent.id);
+    this.router.navigateByUrl('/create-event');
+  }
+
   deleteEvent() {
     this.data.deleteEvent(this.currentEvent).subscribe(
       event => {

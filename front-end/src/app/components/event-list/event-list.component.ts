@@ -46,6 +46,13 @@ export class EventListComponent implements OnInit {
     return false;
   }
 
+  hasTags(tagArray: String[]) {
+    if (tagArray.length > 0) {
+      return true;
+    }
+    return false;
+  }
+
   displayUsers(userArray: User[]): String {
     let displayString = '';
     for (let i = 0; i < userArray.length; i++) {
@@ -56,6 +63,20 @@ export class EventListComponent implements OnInit {
       }
       displayString += ", ";
     }
+    console.log(displayString);
+    return displayString;
+  }
+
+  displayTags(tagArray: String[]): String {
+    let displayString = '';
+    for(let i = 0; i < tagArray.length; i++) {
+      displayString += tagArray[i];
+      if(i == tagArray.length - 1) {
+        break;
+      }
+      displayString += ", "
+    }
+    console.log(displayString);
     return displayString;
   }
 

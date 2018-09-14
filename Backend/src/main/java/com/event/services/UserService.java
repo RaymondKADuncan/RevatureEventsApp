@@ -1,7 +1,6 @@
 package com.event.services;
 
 import java.util.List;
-import java.util.logging.Level;
 
 import javax.transaction.Transactional;
 
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.event.beans.User;
+import com.event.repositories.EventRepository;
 import com.event.repositories.UserRepository;
 
 @Service
@@ -41,8 +41,6 @@ public class UserService {
 	public void delete(User u) {
 		userRepo.delete(u);
 	}
-	
-
 	public User login(User u) {
 		User user = userRepo.findByUsername(u.getUsername());
 		if(user != null && user.getPassword().equals(u.getPassword())) {

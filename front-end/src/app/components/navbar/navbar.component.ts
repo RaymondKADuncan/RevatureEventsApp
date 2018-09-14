@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 import { ContextService } from '../../services/context.service';
 import { User } from '../../models/user.model';
+
+
 
 @Component({
   selector: 'app-navbar',
@@ -39,26 +41,29 @@ export class NavbarComponent implements OnInit {
         console.log(user);
         if (user == null) {
           // No user returned. Redirect to login page
-          console.log('Redirecting to login page');
-          this.router.navigateByUrl('/login');
+          window.alert("Wrong credentials, try again");
         } else {
           // Log in user on the front end
           this.context.setUser(user);
           this.loggedIn = true;
           console.log('Logging  in');
+          this.context.setUser(user);
           this.router.navigateByUrl('');
         }
       }
     );
     this.username = '';
     this.password = '';
-    this.loggedIn = true;
-    this.router.navigateByUrl('/login');
+    //this.loggedIn = true;
   }
 
   logout() {
     // Log out in context service and in navbar component
     this.loggedIn = false;
+  }
+
+  userProfileView(){
+    this.router.navigateByUrl('/user-profile');
   }
 
   createAccount() {

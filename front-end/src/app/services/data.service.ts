@@ -20,6 +20,10 @@ export class DataService {
     return this.http.get<Event[]>(this.url.concat('event/view/all'));
   }
 
+  getSearchResults(query: string): Observable<Event[]>{
+    return this.http.get<Event[]>(this.url.concat('event/search?param=' + query));
+  }
+
   getEventsByUser(user: User): Observable<Event[]> {
     return this.http.get<Event[]>(this.url.concat(''));
   }
@@ -39,17 +43,27 @@ export class DataService {
     return this.http.post<User>(this.url.concat(''), user);
   }
 
-  addEvent(name: String, description: String, location: String) {
+  addEvent(name: String, description: String, location: String, tags: String[], time: Date) {
     const event = {
       name: name,
       description: description,
-      location: location
+      location: location,
+      tags: tags,
+      time: time
     };
     return this.http.post<Event>(this.url.concat('event/add'), event);
   }
 
   deleteEvent(event: Event) {
-    return this.http.post<Event>(this.url.concat('/event/delete'), event);
+    return this.http.post<Event>(this.url.concat('event/delete'), event);
+  }
+
+  updateEvent(event: Event) {
+    return this.http.post<Event>(this.url.concat('event/update'), event);
+  }
+
+  updateUser(user: User){
+    return this.http.post<User>(this.url.concat('user/update'), user);
   }
 
   addUserToEvent(userEvent: String) {
