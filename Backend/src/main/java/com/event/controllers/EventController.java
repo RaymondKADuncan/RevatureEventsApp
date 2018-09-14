@@ -89,7 +89,7 @@ public class EventController
 	
 	@RequestMapping(value="/event/search", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Event>> searchEventsByName(@RequestParam String param) {
-		return new ResponseEntity<List<Event>>(eventService.getEventsByName(param), HttpStatus.OK);
+		return new ResponseEntity<List<Event>>(eventService.search(param), HttpStatus.OK);
 	}
 	
 	
