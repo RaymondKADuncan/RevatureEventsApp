@@ -1,22 +1,40 @@
-<form>
-  <div class="container center-block">
-    <img src="http://www.apimages.com/Images/Ap_Creative_Stock_Header.jpg" alt="Stock Image" class="img-fluid">
-  </div>
-  <div class="form-group">
-    <label for="eventName">Event Name: </label>
-    <input type="text" [(ngModel)]="newEvent.name" name="eventName" class="form-control">
-    <small id="eventNameHelp" class="form-text text-muted">Enter the name for your event here.</small>
-  </div>
-  <div class="form-group text-align-left">
-    <label for="eventDescription">Description: </label> <br>
-    <textarea [(ngModel)]="newEvent.description" name="eventDescription" cols="150" rows="3"></textarea>
-    <small id="eventDescriptionHelp" class="form-text text-muted">Describe your event in a few words.</small>
-  </div>
-  <div class="form-group">
-    <label for="eventLocation">Location: </label>
-    <input type="text" [(ngModel)]="newEvent.location" name="eventLocation" class="form-control">
-    <small id="eventLocationHelp" class="form-text text-muted">Where will your event take place?</small>
-  </div>
-  <button class="btn btn-submit" (click)="createEvent()" *ngIf="eventId == null">Create Event!</button>
-  <button class="btn btn-success" (click)="updateEvent()" *ngIf="eventId != null">Update!</button>
-</form>
+<div class="container center-block">
+  <form>
+    <div class="container center-block">
+      <img src="http://www.apimages.com/Images/Ap_Creative_Stock_Header.jpg" alt="Stock Image" class="img-fluid">
+    </div>
+    <div class="form-group">
+      <label for="eventName">Event Name: </label>
+      <input type="text" [(ngModel)]="newEvent.name" name="eventName" class="form-control">
+      <small id="eventNameHelp" class="form-text text-muted">Enter the name for your event here.</small>
+    </div>
+    <div class="form-group text-align-left">
+      <label for="eventDescription">Description: </label> <br>
+      <textarea [(ngModel)]="newEvent.description" name="eventDescription" cols="95" rows="3"></textarea>
+      <small id="eventDescriptionHelp" class="form-text text-muted">Describe your event in a few words.</small>
+    </div>
+    <div class="form-group">
+      <label for="eventLocation">Location: </label>
+      <input type="text" [(ngModel)]="newEvent.location" name="eventLocation" class="form-control">
+      <small id="eventLocationHelp" class="form-text text-muted">Where will your event take place?</small>
+    </div>
+    <div class="form-group">
+      <label for="eventDate">Date of Event: </label>
+      <input type="datetime" name="eventDate" class="form-control" [(ngModel)]="eventDate">
+      {{ eventDate | date:'medium'}}
+      <input type="time" name="eventTime" class="form-control">
+      <small id="eventDateHelp" class="form-text text-muted">When will your event be?</small>
+    </div>
+    <div class="form-group">
+      <label for="eventTagInput">Tags:</label>
+      <input type="text" class="form-control" name="eventTagInput" [(ngModel)]="eventTagInput">
+      <button class="btn btn-primary" (click)="addTag()">Add Tag</button>
+      <div>
+        <span class="badge badge-success" *ngFor="let e of eventTagList" (click)="removeTag(e)">{{e}}</span>
+      </div>
+      <small id="eventTagsHelp" class="form-text text-muted">Add some tags to describe your event.</small>
+    </div>
+    <button class="btn btn-submit" (click)="createEvent()" *ngIf="eventId == null">Create Event!</button>
+    <button class="btn btn-primary" (click)="updateEvent()" *ngIf="eventId != null">Update!</button>
+  </form>
+</div>

@@ -8,6 +8,7 @@ import { ImageBannerComponent } from './components/image-banner/image-banner.com
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import {EventViewComponent} from './components/event-view/event-view.component';
+import {UserProfileComponent} from './components/user-profile/user-profile.component';
 
 
 export const routes: Routes = [
@@ -19,7 +20,8 @@ export const routes: Routes = [
     {path: 'banner', component: ImageBannerComponent},
     {path: 'create-account', component: CreateAccountComponent},
     {path: 'event-list', component: EventListComponent},
-    {path: 'event-view', component: EventViewComponent}
+    {path: 'event-view', component: EventViewComponent},
+    {path: 'user-profile', component: UserProfileComponent}
 ];
 
 @NgModule({
