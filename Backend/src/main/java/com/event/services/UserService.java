@@ -44,12 +44,6 @@ public class UserService {
 	public void delete(User u) {
 		userRepo.delete(u);
 	}
-	
-	public void addEventToUser(int userId, int eventId) {
-		userRepo.findOne(userId).getEvents().add(eventRepo.findOne(eventId));
-	}
-	
-
 	public User login(User u) {
 		User user = userRepo.findByUsername(u.getUsername());
 		if(user != null && user.getPassword().equals(u.getPassword())) {
