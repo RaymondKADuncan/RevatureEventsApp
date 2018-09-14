@@ -18,6 +18,7 @@ export class CrudEventViewComponent implements OnInit {
   eventId: Number;
   event: Event;
   isNew: boolean;
+  eventDate: Date;
 
   eventTagInput: String;
   eventTagList: String[] = [];

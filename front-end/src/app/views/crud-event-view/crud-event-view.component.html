@@ -20,7 +20,8 @@
     </div>
     <div class="form-group">
       <label for="eventDate">Date of Event: </label>
-      <input type="date" name="eventDate" class="form-control">
+      <input type="datetime" name="eventDate" class="form-control" [(ngModel)]="eventDate">
+      {{ eventDate | date:'medium'}}
       <input type="time" name="eventTime" class="form-control">
       <small id="eventDateHelp" class="form-text text-muted">When will your event be?</small>
     </div>
