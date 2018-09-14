@@ -18,9 +18,6 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepo;
 	
-	@Autowired
-	private EventRepository eventRepo;
-	
 	public List<User> getAll() {
 		return userRepo.findAll();
 	}
