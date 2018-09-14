@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.event.beans.Event;
 import com.event.beans.User;
 import com.event.services.UserService;
 
@@ -21,7 +22,7 @@ import com.event.services.UserService;
 public class UserController {
 
 	@Autowired
-	private UserService userService;
+	private static UserService userService;
 	
 	@RequestMapping(value="/users/view/all", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<User>> getAllUsers() {
@@ -79,5 +80,14 @@ public class UserController {
 		} else {
 			return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 		}
+	}
+	
+	@RequestMapping(value="user/addEvent", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
+	public static ResponseEntity<User> addEventToUser(@RequestBody String userEvent) {
+		String[] userEventIds = userEvent.split(" ");
+		userService.addEventToUser(Integer.parseInt(userEventIds[0]), Integer.parseInt(userEventIds[1]));
+		System.out.println("In Controller add user");
+		User user = null;
+		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 }

@@ -46,6 +46,7 @@ export class NavbarComponent implements OnInit {
           // Log in user on the front end
           this.loggedIn = true;
           console.log('Logging  in');
+          this.context.setUser(user);
           this.router.navigateByUrl('');
         }
       }
