@@ -55,4 +55,8 @@ export class DataService {
   addUserToEvent(userEvent: String) {
     return this.http.post(this.url.concat("event/addUser"), userEvent);
   }
+
+  addComment(eventId: Number, comment: String) {
+    return this.http.post(this.url.concat(`event/comment/${eventId}`), comment);
+  }
 }

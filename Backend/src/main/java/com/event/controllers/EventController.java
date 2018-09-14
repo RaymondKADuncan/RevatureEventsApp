@@ -92,6 +92,14 @@ public class EventController
 		return new ResponseEntity<List<Event>>(eventService.getEventsByName(name), HttpStatus.OK);
 	}
 	
+	@RequestMapping(value="/event/comment/{eventId}", method=RequestMethod.POST)
+	public ResponseEntity<Event> addComment(@PathVariable int eventId, @RequestBody String comment) {
+		Event event = null;
+		System.out.println("Calling add comment");
+		eventService.addComment(eventId, comment);
+		return new ResponseEntity<Event>(event, HttpStatus.OK);
+	}
+	
 	
 	//eventService.getAll().stream().filter(e -> e.getName().equals("INPUTSTRING")).collect(Collectors.toList())
 	

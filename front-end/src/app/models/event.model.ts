@@ -9,5 +9,6 @@ export class Event {
     groups: String[];
     time: Date;
     location: String;
-    pictureUrl: String
+    pictureUrl: String;
+    comments: String[];
 }

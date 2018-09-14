@@ -21,6 +21,8 @@ export class EventViewComponent implements OnInit {
     this.initializeEvent();
   }
   currentEvent: Event;
+  currentComment: String;
+  displayComments: boolean;
   /*
   currentEvent = {
     id: 1,
@@ -54,12 +56,22 @@ export class EventViewComponent implements OnInit {
   }
 
   initializeEvent() {
+    if (this.context.getEventId() === undefined)
+    {
+      console.log('Set Event Id');
+      this.context.setEventId(28);
+    }
+
+    this.displayComments = false;
+
     this.data.getEventById(this.context.getEventId()).subscribe(data => this.currentEvent = data, error => {}, 
       () => 
       {
-        console.log(this.currentEvent);
-        console.log(this.currentEvent.users[0].username);
+        // console.log(this.currentEvent);
+        // console.log(this.currentEvent.users[0].username);
       });
+
+      this.currentComment = "";
   }
 
   deleteEvent() {
@@ -73,6 +85,28 @@ export class EventViewComponent implements OnInit {
 
   goBack() {
     this.router.navigateByUrl('/event-list');
+  }
+
+  toggleComments() {
+    this.displayComments = !this.displayComments;
+  }
+
+  addComment() {
+    let fullMessage = new Date().toLocaleString() + " - " + this.context.getUser().username + " - " + this.currentComment;
+    // console.log(fullMessage);
+    // console.log(new Date(new Date().toLocaleString()));
+    this.currentEvent.comments.push(fullMessage);
+    this.data.addComment(this.context.getEventId(), fullMessage).subscribe(data => {}, error => {}, 
+      () => {this.currentComment = ""});
+  }
+
+  loggedIn() {
+    // console.log(this.context.getUser());
+    if (this.context.getUser() === null)
+    {
+      return false;
+    }
+    return true;
   }
 
 }

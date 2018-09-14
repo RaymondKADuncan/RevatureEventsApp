@@ -36,9 +36,25 @@
   
   <br>
 
+  <button *ngIf="loggedIn()" id="commentAccordion" (click)="toggleComments()">Comments</button>
+    <div id="commentPanel" *ngIf="displayComments">
+      <div *ngIf="currentEvent.comments">
+        <hr>
+        <div *ngFor="let comment of currentEvent.comments">
+          <p>{{comment}}</p>
+          <hr>
+        </div>
+      </div>
+      <div>
+        <textarea cols="80" rows="5" [(ngModel)]="currentComment" placeholder="Write a comment..."></textarea>
+        <button class="btn btn-primary" (click)="addComment()">Send</button>
+      </div>
+    </div>
+
+  <hr>
+
   <div class="container align-center">
     <button class="btn btn-dark" (click)="goBack()" >Go Back</button>
   </div>
-  <!-- comments -->
 
 </div>

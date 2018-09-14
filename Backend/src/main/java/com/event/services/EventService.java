@@ -60,7 +60,11 @@ public class EventService {
 	
 	public List<Event> getEventsByName(String name){
 		return eventRepo.getByName(name);
-
+	}
+	
+	public void addComment(int eventId, String comment)
+	{
+		eventRepo.findOne(eventId).getComments().add(comment);
 	}
 	
 }
