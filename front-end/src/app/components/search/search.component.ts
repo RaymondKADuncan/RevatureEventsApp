@@ -21,9 +21,9 @@ export class SearchComponent implements OnInit {
 
   search(): void {
     console.log('Searching for: ' + this.searchParam);
-    //let url = 'event/view/search/search?name=' + this.searchParam;
-    //let response = this.http.get<Event>(url);
-    //response.subscribe(r => console.log(r.id));
+    let url = 'event/view/search/search?name=' + this.searchParam;
+    let response = this.http.get<Event>(url);
+    response.subscribe(r => console.log(r.id));
   }
 
 }
