@@ -79,7 +79,6 @@ public class EventController
 		eventService.addUserToEvent(Integer.parseInt(userEventIds[0]), Integer.parseInt(userEventIds[1]));
 		System.out.println("In Controller add user");
 		Event event = null;
-		UserController.addEventToUser(userEvent);
 		return new ResponseEntity<Event>(event, HttpStatus.OK);
 	}
 
