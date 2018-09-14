@@ -54,6 +54,10 @@ public class EventService {
 
 	public void addUserToEvent(int userId, int eventId) {
 		eventRepo.findOne(eventId).getUsers().add(userRepo.findOne(userId));
+		List<Integer> toAdd = userRepo.findOne(userId).getEvents();
+		toAdd.add(eventId);
+		userRepo.findOne(userId).setEvents(toAdd);
+		
 	}
 		
 	public List<Event> getEventsFromCurrentTime(){

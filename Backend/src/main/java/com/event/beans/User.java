@@ -30,10 +30,8 @@ public class User {
 	private String password;
 	private String role;
 	
-	@ManyToMany(targetEntity=Event.class, fetch=FetchType.EAGER)
-	@JoinTable(name="users_to_events", joinColumns=@JoinColumn(name="user_id"),
-		inverseJoinColumns=@JoinColumn(name="event_id"))
-	private List<Event> events;
+	@ElementCollection(targetClass=Integer.class, fetch=FetchType.EAGER)
+	private List<Integer> events;
 	
 	@ElementCollection(targetClass=String.class, fetch=FetchType.EAGER)
 	private List<String> groups;
@@ -47,7 +45,7 @@ public class User {
 		this.role = role;
 	}
 
-	public User(String username, String password, String role, List<Event> events, List<String> groups) {
+	public User(String username, String password, String role, List<Integer> events, List<String> groups) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -88,11 +86,11 @@ public class User {
 		this.role = role;
 	}
 
-	public List<Event> getEvents() {
+	public List<Integer> getEvents() {
 		return events;
 	}
 
-	public void setEvents(List<Event> events) {
+	public void setEvents(List<Integer> events) {
 		this.events = events;
 	}
 
