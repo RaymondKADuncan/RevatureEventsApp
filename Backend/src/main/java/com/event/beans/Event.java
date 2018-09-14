@@ -153,7 +153,7 @@ public class Event {
 		return "Event [id=" + id + ", name=" + name + ", description=" + description + ", users=" + users + ", tags="
 				+ tags + ", groups=" + groups + ", time=" + time + "]";
 	}
-
+	
 	public Set<String> getComments() {
 		return comments;
 	}
@@ -161,5 +161,19 @@ public class Event {
 	public void setComments(Set<String> comments) {
 		this.comments = comments;
 	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

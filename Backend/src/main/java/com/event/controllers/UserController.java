@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.event.beans.Event;
 import com.event.beans.User;
 import com.event.services.UserService;
 
@@ -22,7 +21,7 @@ import com.event.services.UserService;
 public class UserController {
 
 	@Autowired
-	private static UserService userService;
+	private UserService userService;
 	
 	@RequestMapping(value="/users/view/all", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<User>> getAllUsers() {
@@ -81,4 +80,5 @@ public class UserController {
 			return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 		}
 	}
+	
 }
