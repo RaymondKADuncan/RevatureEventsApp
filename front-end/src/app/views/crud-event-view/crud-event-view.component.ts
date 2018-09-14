@@ -39,6 +39,7 @@ export class CrudEventViewComponent implements OnInit {
             // Something went wrong
           } else {
             this.newEvent = <Event> data;
+            this.eventTagList = this.newEvent.tags;
           }
         }
       )
