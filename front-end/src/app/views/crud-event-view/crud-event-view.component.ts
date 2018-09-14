@@ -19,6 +19,9 @@ export class CrudEventViewComponent implements OnInit {
   event: Event;
   isNew: boolean;
 
+  eventTagInput: String;
+  eventTagList: String[] = [];
+
   constructor(
     private dataService: DataService, 
     private router: Router,
@@ -43,6 +46,24 @@ export class CrudEventViewComponent implements OnInit {
     }
   }
 
+  showTime() {
+    console.log(this.newEvent.time);
+  }
+
+  addTag() {
+    this.eventTagList.push(this.eventTagInput);
+    console.log(this.eventTagList);
+    this.eventTagInput = '';
+  }
+
+  removeTag(tag: String) {
+    this.eventTagList = this.eventTagList.filter(t => t !== tag);
+  }
+
+  getTags(): String[] {
+    return this.eventTagList;
+  }
+
   getEvents() {
     this.dataService.getAllEvents().subscribe(
       e => {
@@ -52,7 +73,7 @@ export class CrudEventViewComponent implements OnInit {
   }
 
   createEvent() {
-    this.dataService.addEvent(this.newEvent.name, this.newEvent.description, this.newEvent.location).subscribe(
+    this.dataService.addEvent(this.newEvent.name, this.newEvent.description, this.newEvent.location, this.getTags()).subscribe(
       e => {
         console.log(e);
         this.router.navigateByUrl('/event-list');
