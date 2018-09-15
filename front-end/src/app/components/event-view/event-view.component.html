@@ -1,5 +1,5 @@
 
-<div *ngIf="currentEvent" class="jumbotron" style="width: 75%; margin: auto">
+<div *ngIf="currentEvent" class="jumbotron" style="width: 75%; margin: auto; background-color:peru">
   <!-- <img src="../../../../src/assets/Events.jpg" alt="Event Photo" 
     style="width: 60%; margin: auto; display:block"> -->
   <div>
@@ -30,15 +30,45 @@
   <br>
   <div class="container" style="position: relative;">
     <button class="btn btn-primary" (click)="rsvp()">RSVP</button>
-    <button class="btn btn-info" (click)="updateEvent()" style="position: absolute; right: 123px">Update Info</button>
-    <button class="btn btn-danger" (click)="deleteEvent()" style="position: absolute; right: 10px">Delete Event</button>
+    <button class="btn btn-info" (click)="updateEvent()" style="position: absolute; right: 200px">Update Info</button>&nbsp;
+    <button class="btn btn-danger" (click)="deleteEvent()" style="position: absolute; right: 40px">Delete Event</button>
   </div>
   
   <br>
 
+  <button *ngIf="loggedIn()" id="commentAccordion" (click)="toggleComments()">Comments</button>
+    <div id="commentPanel" *ngIf="displayComments">
+      <div *ngIf="currentEvent.comments">
+        <hr>
+        <div *ngFor="let comment of currentEvent.comments">
+          <p>{{comment}}</p>
+          <hr>
+        </div>
+      </div>
+      <div>
+        <textarea cols="80" rows="5" [(ngModel)]="currentComment" placeholder="Write a comment..."></textarea>
+        <button class="btn btn-primary" (click)="addComment()">Send</button>
+      </div>
+    </div>
+
+  <hr>
+
   <div class="container align-center">
     <button class="btn btn-dark" (click)="goBack()" >Go Back</button>
   </div>
-  <!-- comments -->
 
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

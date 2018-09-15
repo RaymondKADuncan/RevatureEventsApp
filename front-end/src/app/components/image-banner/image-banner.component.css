@@ -2,11 +2,16 @@
     padding-top: 54px;
   }
 h3 {
-    color: green;
+    color: black;
+    background:sandybrown;
+}
+p {
+  background:maroon;
 }
   @media (min-width: 992px) {
     body {
       padding-top: 56px;
+      background:sandybrown;
     }
   }
   

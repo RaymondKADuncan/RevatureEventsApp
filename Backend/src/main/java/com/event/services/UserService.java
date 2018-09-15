@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.event.beans.User;
-import com.event.repositories.EventRepository;
 import com.event.repositories.UserRepository;
 
 @Service
@@ -18,8 +17,6 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepo;
 	
-	@Autowired
-	private EventRepository eventRepo;
 	
 	public List<User> getAll() {
 		return userRepo.findAll();
@@ -44,6 +41,7 @@ public class UserService {
 	public void delete(User u) {
 		userRepo.delete(u);
 	}
+
 	public User login(User u) {
 		User user = userRepo.findByUsername(u.getUsername());
 		if(user != null && user.getPassword().equals(u.getPassword())) {

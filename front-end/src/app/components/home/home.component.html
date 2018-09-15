@@ -5,6 +5,37 @@
   <h1 class="my-2"> <strong> Featured Events: </strong> </h1>
 
   <!-- Marketing Icons Section -->
+
+  <div *ngIf="eventsToDisplay" class="row">
+    <div *ngFor="let event of eventsToDisplay" class="col-lg-4 mb-4">
+      <div class="card h-100">
+          <h4 class="p-3 mb-2 bg-danger text-info" class="card-header"><i>{{event.name}}</i></h4>
+          <div class="card-body">
+            <p>{{event.description}}</p>
+          </div>
+          <div class="card-footer">
+              <a (click)="goToEvent(event.id)" class="btn btn-outline-warning">Learn More</a>
+          </div>
+      </div>
+    </div>
+  </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <!--
   <div class="row">
     <div class="col-lg-4 mb-4">
       <div class="card h-100">
@@ -81,4 +112,5 @@
         </div>
       </div>
     </div>
+    -->
   </div>

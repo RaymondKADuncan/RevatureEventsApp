@@ -1,9 +1,7 @@
 package com.event.services;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -66,7 +64,11 @@ public class EventService {
 	
 	public List<Event> getEventsByName(String name){
 		return eventRepo.getByName(name);
-
+	}
+	
+	public void addComment(int eventId, String comment)
+	{
+		eventRepo.findOne(eventId).getComments().add(comment);
 	}
 	
 	public List<Event> search(String param){
