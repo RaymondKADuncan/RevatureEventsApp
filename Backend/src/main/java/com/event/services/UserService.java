@@ -31,7 +31,7 @@ public class UserService {
 	}
 	
 	public User update(User u) {
-		if(u.getId() != 0 && !u.getUsername().isEmpty() && !u.getPassword().isEmpty() && u.getRole()!=null && !u.getEvents().isEmpty() && !u.getGroups().isEmpty()) {
+		if(u.getId() != 0 && !u.getUsername().isEmpty() && !u.getPassword().isEmpty()){
 			userRepo.save(u);
 			return u;
 		}

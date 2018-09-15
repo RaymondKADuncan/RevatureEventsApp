@@ -29,6 +29,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
     this.initializeUser();
+    console.log(this.context.getUser());
   }
 
   currentUser: User;
@@ -55,5 +56,6 @@ export class UserProfileComponent implements OnInit {
     if(this.password != undefined && this.password === this.validatePassword)
       this.currentUser.password = this.password;
     this.context.setUser(this.currentUser);
+    this.data.updateUser(this.currentUser).subscribe();
   }
 }
