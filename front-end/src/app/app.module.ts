@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     CrudEventViewComponent,
     CreateAccountComponent,
     UserProfileComponent,
-    EventViewComponent
+    EventViewComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
