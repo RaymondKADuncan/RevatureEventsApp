@@ -1,29 +1,46 @@
-<div style="text-align: center">
+<div style="text-align: center; color: brown; background-color: blanchedalmond">
   <h1>Create Account</h1>
 </div>
-<form>
-  <div class="container">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" name="username" id="username" placeholder="Username" required minlength="1" maxlength="50" [(ngModel)]="username">
+<form style="background-color:grey ">
+  <div class="container" >
+      <br>
+      <br>
+   
+      <div style="background:darkkhaki" class="jumbotron">
+      
+      <br>
+      <br>
+     
+    <div class="form-group col-lg-3">
+       
+      <label for="username" ><strong>Username</strong></label>
+      <input type="text" class="form-control input-sm" name="username" id="username" placeholder="Username" required minlength="1" maxlength="50" [(ngModel)]="username">
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" name="password" id="password" placeholder="Password" required minlength="1" maxlength="50" [(ngModel)]="password">
+   
+    <div class="form-group col-lg-3">
+      <label for="password"><strong>Password</strong></label>
+      <input type="password" class="form-control input-sm" name="password" id="password" placeholder="Password" required minlength="1" maxlength="50" [(ngModel)]="password">
     </div>
-    <div class="form-group">
-      <label for="validatePassword">Validate Password</label>
-      <input type="password" class="form-control" name="validatePassword" id="validatePassword" placeholder="Password" required minlength="1" maxlength="50" [(ngModel)]="validatePassword">
+    <div class="form-group col-lg-3">
+      <label for="validatePassword"><strong>Password</strong> </label>
+      <input type="password" class="form-control input-sm" name="validatePassword" id="validatePassword" placeholder="Password" required minlength="1" maxlength="50" [(ngModel)]="validatePassword">
     </div>
-    <div class="form-group">
-      <label for="firstname">Firstname</label>
-      <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Firstname" required minlength="1" maxlength="50" [(ngModel)]="firstname">
+    <div class="form-group col-lg-3">
+      <label for="firstname"><strong>First Name</strong></label>
+      <input type="text" class="form-control input-sm" name="firstname" id="firstname" placeholder="Firstname" required minlength="1" maxlength="50" [(ngModel)]="firstname">
     </div>
-    <div class="form-group">
-      <label for="lastname">Lastname</label>
-      <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Lastname" required minlength="1" maxlength="50" [(ngModel)]="lastname">
+    <div class="form-group col-lg-3">
+      <label for="lastname"><strong>Last Name</strong></label>
+      <input type="text" class="form-control input-sm" name="lastname" id="lastname" placeholder="Lastname" required minlength="1" maxlength="50" [(ngModel)]="lastname">
     </div>
-    <button type="button" class="btn btn-success" (click)="createAccount()">Register</button>
+    &nbsp;&nbsp;
+    <button type="button" class="btn btn-success" (click)="createAccount()">Register</button>&nbsp;&nbsp;
     <button type="button" class="btn btn-default" (click)="login()">Log In</button>
+    <br>
+    <br>
+    <br>
   </div>
+    <br>
+  </div>
+
 </form>
