@@ -56,6 +56,4 @@ export class UserProfileComponent implements OnInit {
       this.currentUser.password = this.password;
     this.context.setUser(this.currentUser);
   }
-
-  
 }
