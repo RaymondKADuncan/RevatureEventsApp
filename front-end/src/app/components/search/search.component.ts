@@ -21,12 +21,12 @@ export class SearchComponent implements OnInit {
   }
 
   search(): void {
+    //console.log('Searching for: ' + this.searchQuery);
     const response = this.dataService.getSearchResults(this.searchQuery);
-    //console.log('Searching for: ' + this.searchParam);
     //const url = 'http://ec2-54-208-38-230.compute-1.amazonaws.com:8080/RevEventApp/event/view/search/search?name=' + this.searchParam;
     //const url = 'http://ec2-54-208-38-230.compute-1.amazonaws.com:8080/RevEventApp/event/search?param=' + this.searchParam;
     //const response = this.http.get<Event[]>(url);
-    response.subscribe(data => console.log(JSON.stringify(data[0])));
+    response.subscribe(data => console.log(JSON.stringify(data)));
 
   }
 
