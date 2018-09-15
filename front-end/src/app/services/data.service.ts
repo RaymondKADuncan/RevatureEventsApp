@@ -21,7 +21,7 @@ export class DataService {
   }
 
   getSearchResults(query: string): Observable<Event[]>{
-    return this.http.get<Event[]>(this.url.concat('event/search?param=' + query));
+    return this.http.get<Event[]>(this.url.concat('event/view/search/search?name=' + query));
   }
 
   getEventsByUser(user: User): Observable<Event[]> {
