@@ -28,7 +28,8 @@
       <div class="text-center">
         <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
         <h6>Upload a profile picture</h6>
-        <input type="file" class="text-center center-block file-upload">
+        <input type="file" class="text-center center-block file-upload" (change)="selectFile($event)">
+        <input type="button" value="Upload Photo" class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadImage()">
       </div>
       <br>
       <ul class="list-group">
@@ -46,13 +47,13 @@
             <div class="form-group">
               <div class="col-xs-6">
                 <label for="first_name"><h4>First name</h4></label>
-                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any." [(ngModel)]="user.firstname">
               </div>
             </div>
             <div class="form-group">
               <div class="col-xs-6">
                 <label for="last_name"><h4>Last name</h4></label>
-                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any." [(ngModel)]="user.lastname">
               </div>
             </div>
             <div class="form-group">
