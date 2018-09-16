@@ -9,6 +9,7 @@ export class ContextService {
 
   private user: User = null;
   private eventId: Number;
+  private searchQuery: string;
 
   constructor() { }
 
@@ -27,4 +28,13 @@ export class ContextService {
   setEventId(event: Number): void{
     this.eventId = event;
   }
+
+  getSearchQuery(): string{
+    return this.searchQuery;
+  }
+
+  setSearchQuery(searchQuery: string): void{
+    this.searchQuery = searchQuery;
+  }
+
 }

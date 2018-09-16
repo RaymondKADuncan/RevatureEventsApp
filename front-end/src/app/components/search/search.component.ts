@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 
 import { DataService } from '../../services/data.service';
+import { ContextService } from '../../services/context.service';
 
 @Injectable()
 @Component({
@@ -13,16 +14,13 @@ export class SearchComponent implements OnInit {
 
   searchParam = '';
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private context: ContextService) { }
 
   ngOnInit() {
   }
 
   search(): void {
-    //console.log('Searching for: ' + this.searchParam);
-    const response = this.dataService.getSearchResults(this.searchParam);
-    response.subscribe(data => console.log(JSON.stringify(data)));
-
+    this.context.setSearchQuery(this.searchParam);
   }
 
 }
