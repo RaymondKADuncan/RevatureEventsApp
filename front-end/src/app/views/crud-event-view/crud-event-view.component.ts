@@ -3,6 +3,7 @@ import { Event } from '../../models/event.model';
 import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
 import { ContextService } from '../../services/context.service';
+import { InputValidatorService } from '../../services/input-validator.service';
 
 @Component({
   selector: 'app-crud-event-view',
@@ -24,7 +25,8 @@ export class CrudEventViewComponent implements OnInit {
   constructor(
     private dataService: DataService, 
     private router: Router,
-    private context: ContextService
+    private context: ContextService,
+    private validator: InputValidatorService
   ) { }
 
   ngOnInit() {
@@ -69,6 +71,11 @@ export class CrudEventViewComponent implements OnInit {
   }
 
   createEvent() {
+    if (!this.validator.validateInputStrings(this.newEvent.name, this.newEvent.location, this.newEvent.time))
+    {
+      alert('Invalid Input');
+      return;
+    }
     this.dataService.addEvent(this.newEvent.name, this.newEvent.description, this.newEvent.location, this.getTags(), this.newEvent.time).subscribe(
       e => {
         console.log(e);
@@ -78,6 +85,11 @@ export class CrudEventViewComponent implements OnInit {
   }
 
   updateEvent() {
+    if (!this.validator.validateInputStrings(this.newEvent.name, this.newEvent.location, this.newEvent.time))
+    {
+      alert('Invalid Input');
+      return;
+    }
     this.dataService.updateEvent(this.newEvent).subscribe(
       data => {
         if(data == null) {
