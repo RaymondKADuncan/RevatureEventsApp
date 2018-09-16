@@ -21,7 +21,7 @@ export class DataService {
   }
 
   getSearchResults(query: string): Observable<Event[]>{
-    return this.http.get<Event[]>(this.url.concat('event/search?param=' + query));
+    return this.http.get<Event[]>(this.url.concat('event/view/search/search?name=' + query));
   }
 
   getEventsByUser(user: User): Observable<Event[]> {
@@ -43,7 +43,7 @@ export class DataService {
     return this.http.post<User>(this.url.concat(''), user);
   }
 
-  addEvent(name: String, description: String, location: String, tags: String[], time: Date) {
+  addEvent(name: String, description: String, location: String, tags: String[], time: String) {
     const event = {
       name: name,
       description: description,
@@ -63,7 +63,7 @@ export class DataService {
   }
 
   updateUser(user: User){
-    return this.http.post<User>(this.url.concat('user/update'), user);
+    return this.http.post<User>(this.url.concat('users/update'), user);
   }
 
   addUserToEvent(userEvent: String) {

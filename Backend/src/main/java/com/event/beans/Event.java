@@ -1,6 +1,5 @@
 package com.event.beans;
 
-import java.time.LocalDateTime;
 import java.util.Set;
 
 import javax.persistence.ElementCollection;
@@ -43,14 +42,14 @@ public class Event {
 	
 	@ElementCollection(targetClass=String.class, fetch=FetchType.EAGER)
 	private Set<String> groups;
-	private LocalDateTime time;
+	private String time;
 	
 	@ElementCollection(targetClass=String.class, fetch=FetchType.EAGER)
 	private Set<String> comments;
 	
 	public Event() {}
 	
-	public Event(String name, String description, LocalDateTime time) {
+	public Event(String name, String description, String time) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -58,7 +57,7 @@ public class Event {
 	}
 
 	public Event(String name, String description, Set<User> users, Set<String> tags, Set<String> groups,
-			LocalDateTime time) {
+			String time) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -140,11 +139,11 @@ public class Event {
 		this.groups = groups;
 	}
 
-	public LocalDateTime getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(LocalDateTime time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 
