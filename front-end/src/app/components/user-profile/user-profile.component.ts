@@ -88,6 +88,7 @@ export class UserProfileComponent implements OnInit {
     if(this.password != undefined && this.password === this.validatePassword)
       this.currentUser.password = this.password;
     this.context.setUser(this.currentUser);
+    console.log("CURRENT USER TO BE UPDATED: ", this.currentUser);
     this.data.updateUser(this.currentUser).subscribe();
 >>>>>>> 814e4d5cdb04edf5af5c75f9548dda9c4d9af52d
   }

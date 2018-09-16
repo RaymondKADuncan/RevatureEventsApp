@@ -63,7 +63,7 @@ export class DataService {
   }
 
   updateUser(user: User){
-    return this.http.post<User>(this.url.concat('user/update'), user);
+    return this.http.post<User>(this.url.concat('users/update'), user);
   }
 
   addUserToEvent(userEvent: String) {
