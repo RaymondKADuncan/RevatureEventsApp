@@ -8,5 +8,6 @@ export const properties = {
     awsSecretAccessKey: 'c7hKYUEwWX9gmCc8jS3yKwLkvWa6om/aFjYion+N',
     awsRegion: 'us-east-1',
     awsS3Bucket: 'rev-event-bucket',
+    awsS3ACL: 'public-read',
     awsS3Path: ''
 };

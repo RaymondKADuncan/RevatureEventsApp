@@ -30,7 +30,8 @@ export class ImageService {
     const params = {
       Bucket: properties.awsS3Bucket,
       Key: this.FOLDER + `${username}/` + file.name,
-      Body: file
+      Body: file,
+      ACL: properties.awsS3ACL
     };
 
     bucket.upload(params, function(err, data) {
@@ -42,9 +43,5 @@ export class ImageService {
       console.log('Successfully uploaded file.', data);
       return true;
     });
-  }
-
-  downloadProfileImage(username: String) {
-
   }
 }
