@@ -1,7 +1,6 @@
 package com.event.services;
 
 import java.util.List;
-import java.util.logging.Level;
 
 import javax.transaction.Transactional;
 
@@ -18,6 +17,7 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepo;
 	
+	
 	public List<User> getAll() {
 		return userRepo.findAll();
 	}
@@ -31,7 +31,7 @@ public class UserService {
 	}
 	
 	public User update(User u) {
-		if(u.getId() != 0 && !u.getUsername().isEmpty() && !u.getPassword().isEmpty() && u.getRole()!=null && !u.getEvents().isEmpty() && !u.getGroups().isEmpty()) {
+		if(u.getId() != 0 && !u.getUsername().isEmpty() && !u.getPassword().isEmpty()){
 			userRepo.save(u);
 			return u;
 		}
@@ -41,7 +41,6 @@ public class UserService {
 	public void delete(User u) {
 		userRepo.delete(u);
 	}
-	
 
 	public User login(User u) {
 		User user = userRepo.findByUsername(u.getUsername());

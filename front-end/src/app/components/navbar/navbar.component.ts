@@ -44,9 +44,14 @@ export class NavbarComponent implements OnInit {
           window.alert('Wrong credentials, try again');
         } else {
           // Log in user on the front end
+          this.context.setUser(user);
           this.loggedIn = true;
           console.log('Logging  in');
           this.context.setUser(user);
+<<<<<<< HEAD
+=======
+          this.router.navigateByUrl('');
+>>>>>>> 814e4d5cdb04edf5af5c75f9548dda9c4d9af52d
         }
       }
     );

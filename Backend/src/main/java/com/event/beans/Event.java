@@ -45,6 +45,9 @@ public class Event {
 	private Set<String> groups;
 	private LocalDateTime time;
 	
+	@ElementCollection(targetClass=String.class, fetch=FetchType.EAGER)
+	private Set<String> comments;
+	
 	public Event() {}
 	
 	public Event(String name, String description, LocalDateTime time) {
@@ -151,7 +154,13 @@ public class Event {
 				+ tags + ", groups=" + groups + ", time=" + time + "]";
 	}
 	
-	
+	public Set<String> getComments() {
+		return comments;
+	}
+
+	public void setComments(Set<String> comments) {
+		this.comments = comments;
+	}	
 	
 	
 	
