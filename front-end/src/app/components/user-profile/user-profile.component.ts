@@ -79,6 +79,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   updateUser() {
+    console.log(this.currentUser);
     console.log(this.firstname, this.lastname, this.bio, this.phone, this.email, this.password, this.validatePassword);
     if (this.firstname !== undefined) {
       this.currentUser.firstname = this.firstname;

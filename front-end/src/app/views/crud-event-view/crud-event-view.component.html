@@ -20,8 +20,7 @@
     </div>
     <div class="form-group">
       <label for="eventDate">Date of Event: </label>
-      <input type="datetime" name="eventDate" class="form-control" [(ngModel)]="newEvent.time" placeholder="MM/DD/YYYY HH:MM AM/PM">
-      {{ newEvent.time | date:'medium'}}
+      <input type="text" name="eventDate" class="form-control" [(ngModel)]="newEvent.time" placeholder="MM/DD/YYYY HH:MM AM/PM">
       <small id="eventDateHelp" class="form-text text-muted">When will your event be?</small>
     </div>
     <div class="form-group">
@@ -36,4 +35,10 @@
     <button class="btn btn-submit" (click)="createEvent()" *ngIf="eventId == null">Create Event!</button>
     <button class="btn btn-primary" (click)="updateEvent()" *ngIf="eventId != null">Update!</button>
   </form>
+  <br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </div>

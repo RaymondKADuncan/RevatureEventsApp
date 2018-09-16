@@ -43,7 +43,7 @@ export class DataService {
     return this.http.post<User>(this.url.concat(''), user);
   }
 
-  addEvent(name: String, description: String, location: String, tags: String[], time: Date) {
+  addEvent(name: String, description: String, location: String, tags: String[], time: String) {
     const event = {
       name: name,
       description: description,

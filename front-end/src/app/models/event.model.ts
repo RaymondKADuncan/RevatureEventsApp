@@ -7,7 +7,7 @@ export class Event {
     users: User[];
     tags: String[];
     groups: String[];
-    time: Date;
+    time: String;
     location: String;
     pictureUrl: String;
     comments: String[];
