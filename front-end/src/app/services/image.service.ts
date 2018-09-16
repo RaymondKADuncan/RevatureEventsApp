@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import * as AWS from 'aws-sdk/global';
 import * as S3 from 'aws-sdk/clients/s3';
 
@@ -34,7 +35,7 @@ export class ImageService {
       ACL: properties.awsS3ACL
     };
 
-    bucket.upload(params, function(err, data) {
+    return bucket.upload(params, function(err, data) {
       if (err) {
         console.log('There was an error uploading the photo');
         return false;

@@ -20,13 +20,10 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-<<<<<<< HEAD
 import { ContextService } from './services/context.service';
 import { DataService } from './services/data.service';
 import { ImageService } from './services/image.service';
-=======
 import { SearchResultsComponent } from './components/search-results/search-results.component';
->>>>>>> 814e4d5cdb04edf5af5c75f9548dda9c4d9af52d
 
 @NgModule({
   declarations: [

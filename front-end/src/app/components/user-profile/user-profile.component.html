@@ -18,15 +18,13 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-10">
-      <h1>{{currentUser.username}}</h1>
+      <h1>{{currentUser.username | uppercase}}</h1>
     </div>
-    <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive"
-          src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
   </div>
   <div class="row">
     <div class="col-sm-3">
       <div class="text-center">
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <img [src]="profileImageUrl" class="avatar img-circle img-thumbnail" alt="avatar">
         <h6>Upload a profile picture</h6>
         <input type="file" class="text-center center-block file-upload" (change)="selectFile($event)">
         <input type="button" value="Upload Photo" class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadImage()">
@@ -45,23 +43,15 @@
             <div class="form-group">
               <div class="col-xs-6">
                 <label for="first_name"><h4>First name</h4></label>
-<<<<<<< HEAD
-                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any." [(ngModel)]="user.firstname">
-=======
                 <div>Current first name is: {{currentUser.firstname}}</div>
                 <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any." [(ngModel)]="firstname">
->>>>>>> 814e4d5cdb04edf5af5c75f9548dda9c4d9af52d
               </div>
             </div>
             <div class="form-group">
               <div class="col-xs-6">
                 <label for="last_name"><h4>Last name</h4></label>
-<<<<<<< HEAD
-                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any." [(ngModel)]="user.lastname">
-=======
                 <div>Current last name is: {{currentUser.lastname}}</div>
                 <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any." [(ngModel)]="lastname">
->>>>>>> 814e4d5cdb04edf5af5c75f9548dda9c4d9af52d
               </div>
             </div>
             <div class="form-group">
