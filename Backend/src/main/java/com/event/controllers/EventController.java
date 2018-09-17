@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.event.beans.Event;
@@ -41,7 +42,7 @@ public class EventController
 		return new ResponseEntity<List<Event>>(eventService.getAll(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/event/view/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="/event/view/id/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Event> getEventByID(@PathVariable int id) {
 		return new ResponseEntity<Event>(eventService.getOne(id), HttpStatus.OK);
 	}
@@ -70,6 +71,35 @@ public class EventController
 		Event event = null;
 		return new ResponseEntity<Event>(event, HttpStatus.OK);
 	}
+	
+
+	@RequestMapping(value="event/addUser", method=RequestMethod.POST,produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Event> addUserToEvent(@RequestBody String userEvent) {
+		String[] userEventIds = userEvent.split(" ");
+		eventService.addUserToEvent(Integer.parseInt(userEventIds[0]), Integer.parseInt(userEventIds[1]));
+		System.out.println("In Controller add user");
+		Event event = null;
+		return new ResponseEntity<Event>(event, HttpStatus.OK);
+	}
+
+	@RequestMapping(value="/event/view/future", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Event>> getEventsFromCurrentTime() {
+		return new ResponseEntity<List<Event>>(eventService.getEventsFromCurrentTime(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/event/view/search/search", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<Event>> searchEventsByName(@RequestParam String name) {
+		return new ResponseEntity<List<Event>>(eventService.getEventsByName(name), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/event/comment/{eventId}", method=RequestMethod.POST)
+	public ResponseEntity<Event> addComment(@PathVariable int eventId, @RequestBody String comment) {
+		Event event = null;
+		System.out.println("Calling add comment");
+		eventService.addComment(eventId, comment);
+		return new ResponseEntity<Event>(event, HttpStatus.OK);
+	}
+	
 	
 	
 	//eventService.getAll().stream().filter(e -> e.getName().equals("INPUTSTRING")).collect(Collectors.toList())

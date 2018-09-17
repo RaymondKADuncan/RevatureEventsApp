@@ -7,6 +7,10 @@ import { HomeComponent } from './components/home/home.component';
 import { ImageBannerComponent } from './components/image-banner/image-banner.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { EventListComponent } from './components/event-list/event-list.component';
+import {EventViewComponent} from './components/event-view/event-view.component';
+import {UserProfileComponent} from './components/user-profile/user-profile.component';
+import {SearchComponent} from './components/search/search.component';
+import {SearchResultsComponent} from './components/search-results/search-results.component';
 
 
 export const routes: Routes = [
@@ -17,7 +21,11 @@ export const routes: Routes = [
     {path: 'create-event', component: CrudEventViewComponent},
     {path: 'banner', component: ImageBannerComponent},
     {path: 'create-account', component: CreateAccountComponent},
-    {path: 'event-list', component: EventListComponent}
+    {path: 'event-list', component: EventListComponent},
+    {path: 'event-view', component: EventViewComponent},
+    {path: 'user-profile', component: UserProfileComponent},
+    {path: 'search', component: SearchComponent},
+    {path: 'search-results', component: SearchResultsComponent}
 ];
 
 @NgModule({

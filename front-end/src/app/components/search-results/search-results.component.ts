@@ -7,12 +7,13 @@ import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-event-list',
-  templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.css']
+  templateUrl: './search-results.component.html',
+  styleUrls: ['./search-results.component.css']
 })
-export class EventListComponent implements OnInit {
+export class SearchResultsComponent implements OnInit {
 
   events: Event[] = [];
+  query: string;
 
   constructor(private dataService: DataService,
     private router: Router,
@@ -23,7 +24,8 @@ export class EventListComponent implements OnInit {
   }
 
   getEvents() {
-    this.dataService.getAllEvents().subscribe(
+    this.query = this.context.getSearchQuery();
+    this.dataService.getSearchResults(this.query).subscribe(
       e => {
         this.events = e;
       }

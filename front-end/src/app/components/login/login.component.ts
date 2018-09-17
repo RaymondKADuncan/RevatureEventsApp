@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 import { ContextService } from '../../services/context.service';
-import { User } from '../../models/user';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -36,7 +36,10 @@ export class LoginComponent implements OnInit {
           const user = <User> data;
           // @ts-ignore
           this.context.setUser(user);
-          this.router.navigateByUrl('home');
+          //
+          console.log('Set User');
+          //
+          this.router.navigateByUrl('event-list');
         }
       }
     );

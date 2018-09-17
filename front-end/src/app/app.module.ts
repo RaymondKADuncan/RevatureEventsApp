@@ -14,11 +14,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { FeaturedEventsViewComponent } from './views/featured-events-view/featured-events-view.component';
 import { CrudEventViewComponent } from './views/crud-event-view/crud-event-view.component';
 import { AuthService } from './services/auth.service';
+import {EventViewComponent} from './components/event-view/event-view.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     FeaturedEventsViewComponent,
     CrudEventViewComponent,
     CreateAccountComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    EventViewComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

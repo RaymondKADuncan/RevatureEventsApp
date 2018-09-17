@@ -1,7 +1,7 @@
 
-<div class="jumbotron" style="width: 75%; margin: auto">
-  <img src="../../../../src/assets/Events.jpg" alt="Event Photo" 
-    style="width: 60%; margin: auto; display:block">
+<div *ngIf="currentEvent" class="jumbotron" style="width: 75%; margin: auto">
+  <!-- <img src="../../../../src/assets/Events.jpg" alt="Event Photo" 
+    style="width: 60%; margin: auto; display:block"> -->
   <div>
     <h1 style="display: inline">{{currentEvent.name}}</h1>
     <span style="float: right">{{currentEvent.time | date}}</span>
@@ -27,9 +27,34 @@
       </iframe>
     </div>
   </div>
-
-  <button class="btn btn-primary" (click)="rsvp()">RSVP</button>
+  <br>
+  <div class="container" style="position: relative;">
+    <button class="btn btn-primary" (click)="rsvp()">RSVP</button>
+    <button class="btn btn-info" (click)="updateEvent()" style="position: absolute; right: 123px">Update Info</button>
+    <button class="btn btn-danger" (click)="deleteEvent()" style="position: absolute; right: 10px">Delete Event</button>
+  </div>
   
-  <!-- comments -->
+  <br>
+
+  <button *ngIf="loggedIn()" id="commentAccordion" (click)="toggleComments()">Comments</button>
+    <div id="commentPanel" *ngIf="displayComments">
+      <div *ngIf="currentEvent.comments">
+        <hr>
+        <div *ngFor="let comment of currentEvent.comments">
+          <p>{{comment}}</p>
+          <hr>
+        </div>
+      </div>
+      <div>
+        <textarea cols="80" rows="5" [(ngModel)]="currentComment" placeholder="Write a comment..."></textarea>
+        <button class="btn btn-primary" (click)="addComment()">Send</button>
+      </div>
+    </div>
+
+  <hr>
+
+  <div class="container align-center">
+    <button class="btn btn-dark" (click)="goBack()" >Go Back</button>
+  </div>
 
 </div>

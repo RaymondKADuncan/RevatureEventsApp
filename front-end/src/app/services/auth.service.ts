@@ -21,7 +21,7 @@ export class AuthService {
     };
     // console.log(`Logging in ${username} with password: ${password}`);
     // console.log(JSON.stringify(user));
-    return this.http.post<User>(this.url.concat('login'), JSON.stringify(user));
+    return this.http.post<User>(this.url.concat('login'), user);
   }
 
   createAccount(username: String, password: String, firstname: String, lastname: String) {

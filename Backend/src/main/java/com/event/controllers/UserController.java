@@ -51,7 +51,7 @@ public class UserController {
 		}
 	}
 	
-	@RequestMapping(value="/users/update", method=RequestMethod.PUT)
+	@RequestMapping(value="/users/update", method=RequestMethod.POST)
 	public ResponseEntity<User> updateUser(@RequestBody User u) {
 		u = userService.update(u);
 		if(u == null) {
@@ -80,4 +80,5 @@ public class UserController {
 			return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 		}
 	}
+	
 }

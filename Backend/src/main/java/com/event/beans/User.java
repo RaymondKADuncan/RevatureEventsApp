@@ -8,9 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -29,11 +26,14 @@ public class User {
 	private String username;
 	private String password;
 	private String role;
+	private String firstname;
+	private String lastname;
+	private String email;
+	private String bio;
+	private int phone;
 	
-	@ManyToMany(targetEntity=Event.class, fetch=FetchType.EAGER)
-	@JoinTable(name="users_to_events", joinColumns=@JoinColumn(name="user_id"),
-		inverseJoinColumns=@JoinColumn(name="event_id"))
-	private List<Event> events;
+	@ElementCollection(targetClass=Integer.class, fetch=FetchType.EAGER)
+	private List<Integer> events;
 	
 	@ElementCollection(targetClass=String.class, fetch=FetchType.EAGER)
 	private List<String> groups;
@@ -47,7 +47,7 @@ public class User {
 		this.role = role;
 	}
 
-	public User(String username, String password, String role, List<Event> events, List<String> groups) {
+	public User(String username, String password, String role, List<Integer> events, List<String> groups) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -88,11 +88,11 @@ public class User {
 		this.role = role;
 	}
 
-	public List<Event> getEvents() {
+	public List<Integer> getEvents() {
 		return events;
 	}
 
-	public void setEvents(List<Event> events) {
+	public void setEvents(List<Integer> events) {
 		this.events = events;
 	}
 
@@ -102,6 +102,48 @@ public class User {
 
 	public void setGroups(List<String> groups) {
 		this.groups = groups;
+	}
+	
+	
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+
+	public int getPhone() {
+		return phone;
+	}
+
+	public void setPhone(int phone) {
+		this.phone = phone;
 	}
 
 	@Override

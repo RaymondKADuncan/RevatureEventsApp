@@ -1,7 +1,4 @@
-<br>
-<br>
-
-<h3>All Events:</h3>
+<h3>Search Results</h3>
 <table class="table table-hover table-striped table-bordered">
   <thead class="thead-dark">
     <tr>
@@ -18,7 +15,7 @@
       <td style="display:none;">{{e.id}}</td>
       <td>{{e.name}}</td>
       <td>{{e.description}}</td>
-      <td>{{e.time}}</td>
+      <td>{{e.date}}</td>
       <td *ngIf="hasUsers(e.users)">{{displayUsers(e.users)}}</td>
       <td *ngIf="!hasUsers(e.users)"></td>
       <td *ngIf="hasTags(e.tags)">{{displayTags(e.tags)}}</td>
