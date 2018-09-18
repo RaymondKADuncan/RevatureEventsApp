@@ -14,12 +14,12 @@ import { ImageService } from '../../services/image.service';
 export class CrudEventViewComponent implements OnInit {
 
   private events: Event[] = [];
-  private newEvent: Event;
+  private newEvent: Event = new Event();
   private eventId: Number;
   private event: Event;
   private isNew: boolean;
   private eventDate: Date;
-  private eventImageUrl: String = 'http://www.apimages.com/Images/Ap_Creative_Stock_Header.jpg';
+  private eventImageUrl: String;
   private selectedFiles: FileList;
 
   private eventTagInput: String;
@@ -39,6 +39,7 @@ export class CrudEventViewComponent implements OnInit {
     if (this.eventId === undefined) {
       console.log('No event, creating new');
       this.newEvent = new Event();
+      this.eventImageUrl = 'http://www.apimages.com/Images/Ap_Creative_Stock_Header.jpg';
     } else {
       this.dataService.getEventById(this.eventId).subscribe(
         data => {
