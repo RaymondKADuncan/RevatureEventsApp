@@ -10,8 +10,6 @@ import { properties } from '../app.properties';
 })
 export class ImageService {
 
-  private FOLDER = 'profile-images/';
-
   constructor() { }
 
   private getS3Bucket(): any {
@@ -30,7 +28,28 @@ export class ImageService {
 
     const params = {
       Bucket: properties.awsS3Bucket,
-      Key: this.FOLDER + `${username}/` + file.name,
+      Key: 'profile-images/' + `${username}/` + file.name,
+      Body: file,
+      ACL: properties.awsS3ACL
+    };
+
+    return bucket.upload(params, function(err, data) {
+      if (err) {
+        console.log('There was an error uploading the photo');
+        return false;
+      }
+
+      console.log('Successfully uploaded file.', data);
+      return true;
+    });
+  }
+
+  uploadEventImage(file: File, name: String) {
+    const bucket = this.getS3Bucket();
+
+    const params = {
+      Bucket: properties.awsS3Bucket,
+      Key: 'event-images/' + `${name}/` + file.name,
       Body: file,
       ACL: properties.awsS3ACL
     };

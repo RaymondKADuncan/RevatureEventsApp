@@ -26,7 +26,7 @@
       <div class="text-center">
         <img [src]="profileImageUrl" class="avatar img-circle img-thumbnail" alt="avatar">
         <h6>Upload a profile picture</h6>
-        <input type="file" class="text-center center-block file-upload" (change)="selectFile($event)">
+        <input type="file" accept="image/*" class="text-center center-block file-upload" (change)="selectFile($event)">
         <input type="button" value="Upload Photo" class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadImage()">
       </div>
       <br>

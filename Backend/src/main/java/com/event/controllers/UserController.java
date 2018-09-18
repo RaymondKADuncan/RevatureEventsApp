@@ -53,12 +53,15 @@ public class UserController {
 	
 	@RequestMapping(value="/users/update", method=RequestMethod.POST)
 	public ResponseEntity<User> updateUser(@RequestBody User u) {
-		u = userService.update(u);
-		if(u == null) {
+		System.out.println("Received " + u.toString());
+		User user = userService.update(u);
+		if(user == null) {
+			System.out.println("Returning null");
 			return new ResponseEntity<User>(HttpStatus.CONFLICT);
 		}
 		else {
-			return new ResponseEntity<User>(HttpStatus.OK);
+			System.out.println("Returning " + user.toString());
+			return new ResponseEntity<User>(user, HttpStatus.OK);
 		}
 	}
 	
@@ -79,6 +82,5 @@ public class UserController {
 		} else {
 			return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 		}
-	}
-	
+	}	
 }

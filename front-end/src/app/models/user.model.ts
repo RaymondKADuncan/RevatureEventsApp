@@ -10,7 +10,7 @@ export class User {
     password: String;
     role: String;
     bio: String;
-    profileImageURL: String;
+    profileImageUrl: String;
     groups: String [];
     events: Number [];
 }

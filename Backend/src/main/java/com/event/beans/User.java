@@ -2,6 +2,7 @@ package com.event.beans;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,13 +24,17 @@ public class User {
 	@GeneratedValue(generator="user_seq_gen", strategy=GenerationType.SEQUENCE)
 	private int id;
 	
+	@Column(nullable=false, unique=true)
 	private String username;
+	
+	@Column(nullable=false)
 	private String password;
 	private String role;
 	private String firstname;
 	private String lastname;
 	private String email;
 	private String bio;
+	private String profileImageUrl;
 	private int phone;
 	
 	@ElementCollection(targetClass=Integer.class, fetch=FetchType.EAGER)
@@ -144,6 +149,14 @@ public class User {
 
 	public void setPhone(int phone) {
 		this.phone = phone;
+	}
+
+	public String getProfileImageUrl() {
+		return profileImageUrl;
+	}
+
+	public void setProfileImageUrl(String profileImageUrl) {
+		this.profileImageUrl = profileImageUrl;
 	}
 
 	@Override

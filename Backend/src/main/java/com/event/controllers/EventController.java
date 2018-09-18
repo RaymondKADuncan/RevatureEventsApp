@@ -61,8 +61,16 @@ public class EventController
 	
 	@RequestMapping(value="/event/update", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Event> updateEvent(@RequestBody Event e) {
-		e = eventService.saveOne(e);
-		return new ResponseEntity<Event>(e, HttpStatus.OK);
+		System.out.println("Received " + e.toString());
+		Event event = eventService.saveOne(e);
+		if(event != null) {
+			System.out.println("Returning " + event.toString());
+			return new ResponseEntity<Event>(event, HttpStatus.OK);
+		} else {
+			System.out.println("Returning null");
+			return new ResponseEntity<Event>(HttpStatus.NO_CONTENT);
+		}
+		
 	}
 	
 	@RequestMapping(value="/event/delete", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)

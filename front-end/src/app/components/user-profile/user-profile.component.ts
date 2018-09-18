@@ -50,8 +50,8 @@ export class UserProfileComponent implements OnInit {
       console.log('User not received from context');
     } else {
       this.currentUser = user;
-      if (this.currentUser.profileImageURL) {
-        this.profileImageUrl = this.currentUser.profileImageURL;
+      if (this.currentUser.profileImageUrl) {
+        this.profileImageUrl = this.currentUser.profileImageUrl;
       } else {
         this.profileImageUrl = 'http://ssl.gstatic.com/accounts/ui/avatar_2x.png';
       }
@@ -64,8 +64,18 @@ export class UserProfileComponent implements OnInit {
       // On Success
       (data) => {
         console.log('Success', data);
-        this.currentUser.profileImageURL = data.Location;
-        this.profileImageUrl = data.Location;
+        this.currentUser.profileImageUrl = data.Location;
+        this.data.updateUser(this.currentUser).subscribe(
+          userData => {
+            if (userData !== null) {
+              const u = <User> userData;
+              this.profileImageUrl = u.profileImageUrl;
+              console.log('User image successfully updated');
+            } else {
+              console.log('Something went wrong');
+            }
+          }
+        );
       }
     ).catch(
       data => {
