@@ -20,6 +20,9 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ContextService } from './services/context.service';
+import { DataService } from './services/data.service';
+import { ImageService } from './services/image.service';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 @NgModule({
@@ -46,7 +49,12 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    ContextService,
+    DataService,
+    ImageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,7 +20,7 @@ export class DataService {
     return this.http.get<Event[]>(this.url.concat('event/view/all'));
   }
 
-  getSearchResults(query: string): Observable<Event[]>{
+  getSearchResults(query: string): Observable<Event[]> {
     return this.http.get<Event[]>(this.url.concat('event/view/search/search?name=' + query));
   }
 
@@ -62,12 +62,12 @@ export class DataService {
     return this.http.post<Event>(this.url.concat('event/update'), event);
   }
 
-  updateUser(user: User){
+  updateUser(user: User) {
     return this.http.post<User>(this.url.concat('users/update'), user);
   }
 
   addUserToEvent(userEvent: String) {
-    return this.http.post(this.url.concat("event/addUser"), userEvent);
+    return this.http.post(this.url.concat('event/addUser'), userEvent);
   }
 
   addComment(eventId: Number, comment: String) {

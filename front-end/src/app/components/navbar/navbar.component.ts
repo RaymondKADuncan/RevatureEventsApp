@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.context.getUser() == null) {
+    if (this.context.getUser() === null) {
       this.loggedIn = false;
     } else {
       this.loggedIn = true;
@@ -39,30 +39,28 @@ export class NavbarComponent implements OnInit {
       data => {
         const user = <User> data;
         console.log(user);
-        if (user == null) {
+        if (user === null) {
           // No user returned. Redirect to login page
-          window.alert("Wrong credentials, try again");
+          window.alert('Wrong credentials, try again');
         } else {
           // Log in user on the front end
           this.context.setUser(user);
           this.loggedIn = true;
           console.log('Logging  in');
-          this.context.setUser(user);
-          this.router.navigateByUrl('');
         }
       }
     );
     this.username = '';
     this.password = '';
-    //this.loggedIn = true;
   }
 
   logout() {
     // Log out in context service and in navbar component
     this.loggedIn = false;
+    this.router.navigateByUrl('');
   }
 
-  userProfileView(){
+  userProfileView() {
     this.router.navigateByUrl('/user-profile');
   }
 

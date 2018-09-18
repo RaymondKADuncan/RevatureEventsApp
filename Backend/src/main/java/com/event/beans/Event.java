@@ -31,6 +31,7 @@ public class Event {
 	private boolean visible;
 	private String notification;
 	private String location;
+	private String eventImageUrl;
 	
 	@ManyToMany(targetEntity=User.class, fetch=FetchType.EAGER)
 	@JoinTable(name="events_to_users", joinColumns=@JoinColumn(name="event_id"),
@@ -147,10 +148,12 @@ public class Event {
 		this.time = time;
 	}
 
-	@Override
-	public String toString() {
-		return "Event [id=" + id + ", name=" + name + ", description=" + description + ", users=" + users + ", tags="
-				+ tags + ", groups=" + groups + ", time=" + time + "]";
+	public String getEventImageUrl() {
+		return eventImageUrl;
+	}
+
+	public void setEventImageUrl(String eventImageUrl) {
+		this.eventImageUrl = eventImageUrl;
 	}
 	
 	public Set<String> getComments() {
@@ -159,20 +162,15 @@ public class Event {
 
 	public void setComments(Set<String> comments) {
 		this.comments = comments;
+	}
+
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", name=" + name + ", description=" + description + ", visible=" + visible
+				+ ", notification=" + notification + ", location=" + location + ", eventImageUrl=" + eventImageUrl
+				+ ", users=" + users + ", tags=" + tags + ", groups=" + groups + ", time=" + time + ", comments="
+				+ comments + "]";
 	}	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

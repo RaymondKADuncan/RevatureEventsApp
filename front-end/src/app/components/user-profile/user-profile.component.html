@@ -18,17 +18,16 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-10">
-      <h1>{{currentUser.username}}</h1>
+      <h1>{{currentUser.username | uppercase}}</h1>
     </div>
-    <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive"
-          src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a></div>
   </div>
   <div class="row">
     <div class="col-sm-3">
       <div class="text-center">
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+        <img [src]="profileImageUrl" class="avatar img-circle img-thumbnail" alt="avatar">
         <h6>Upload a profile picture</h6>
-        <input type="file" class="text-center center-block file-upload">
+        <input type="file" accept="image/*" class="text-center center-block file-upload" (change)="selectFile($event)">
+        <input type="button" value="Upload Photo" class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadImage()">
       </div>
       <br>
       <ul class="list-group">
